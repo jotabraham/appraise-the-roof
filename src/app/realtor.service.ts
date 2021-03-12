@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { secret } from './secrets';
 
 @Injectable({
   providedIn: 'root'
@@ -8,14 +8,16 @@ import { Injectable } from '@angular/core';
 export class RealtorService {
 
   realtorUrl:string = "https://realtor.p.rapidapi.com/properties/v2/list-for-sale";
+  apiKey:string = secret.api_key;
+  apiHost:string = secret.api_host;
 
   constructor(private http: HttpClient) { }
 
   getListing = (): any => {
     return this.http.get(this.realtorUrl, {
       headers: {
-        'x-rapidapi-key': "e436efd178mshfd6fbe3966a4ab8p12d918jsn9b1bdf0e9910",
-        'x-rapidapi-host': "realtor.p.rapidapi.com",
+        'x-rapidapi-key': this.apiKey,
+        'x-rapidapi-host': this.apiHost,
         useQueryString: "true",
       },
       params: {
