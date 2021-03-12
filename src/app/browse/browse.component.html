@@ -1,1 +1,26 @@
 <app-header></app-header>
+<form>
+  <input
+    type="text"
+    name="city"
+    id="city"
+    placeholder="Search by city..."
+    ngModel
+  />
+  <input
+    type="number"
+    name="sqft"
+    id="sqft"
+    placeholder="Search by square footage..."
+    ngModel
+  />
+  <select name="beds" id="beds" ngModel>
+    <option value="" disabled selected># of Beds</option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+</form>

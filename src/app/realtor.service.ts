@@ -3,30 +3,37 @@ import { Injectable } from '@angular/core';
 import { secret } from './secrets';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RealtorService {
+  realtorUrl: string =
+    'https://realtor.p.rapidapi.com/properties/v2/list-for-sale';
+  apiKey: string = secret.api_key;
+  apiHost: string = secret.api_host;
 
-  realtorUrl:string = "https://realtor.p.rapidapi.com/properties/v2/list-for-sale";
-  apiKey:string = secret.api_key;
-  apiHost:string = secret.api_host;
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  getListing = (): any => {
+    return this.http.get(this.realtorUrl, {
+      headers: {
+        'x-rapidapi-key': this.apiKey,
+        'x-rapidapi-host': this.apiHost,
+        useQueryString: 'true',
+      },
+      params: {
+        city: 'Grand Rapids',
+        limit: '100',
+        offset: '0',
+        state_code: 'MI',
+        sort: 'relevance',
+      },
+    });
+  };
 
-  // getListing = (): any => {
-  //   return this.http.get(this.realtorUrl, {
-  //     headers: {
-  //       'x-rapidapi-key': this.apiKey,
-  //       'x-rapidapi-host': this.apiHost,
-  //       useQueryString: "true",
-  //     },
-  //     params: {
-  //       city: "Grand Rapids",
-  //       limit: "100",
-  //       offset: "0",
-  //       state_code: "MI",
-  //       sort: "relevance", 
-  //     },
-  //   })
-  // }
+  searchListings = (searchObject: any): any => {
+    let params: any = {
+      'x-rapidapi-key': this.apiKey,
+      'x-rapidapi-host': this.apiHost,
+    };
+  };
 }

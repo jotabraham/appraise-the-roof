@@ -12,6 +12,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { BrowseComponent } from './browse/browse.component';
 import { StandardGameComponent } from './standard-game/standard-game.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HouseCardComponent } from './house-card/house-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FavoritesComponent,
     BrowseComponent,
     StandardGameComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HouseCardComponent
   ],
   imports: [
     BrowserModule,
