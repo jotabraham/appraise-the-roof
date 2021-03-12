@@ -11,12 +11,12 @@ export class MainComponent implements OnInit {
   constructor(private realtorService: RealtorService) { }
 
   ngOnInit(): void {
-    this.getAndSetListings();
+    // this.getAndSetListings();
   }
 
-  getAndSetListings = () => {
-    this.realtorService.getListing().subscribe((response)=>{
-      console.log(response);
-    })
-  }
+  // getAndSetListings = () => {
+  //   this.realtorService.getListing().subscribe((response)=>{
+  //     console.log(response);
+  //   })
+  // }
 }
