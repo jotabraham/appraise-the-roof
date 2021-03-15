@@ -11,7 +11,7 @@ export class RealtorService {
     'https://realtor.p.rapidapi.com/properties/v2/list-for-sale';
   apiKey: string = secret.api_key;
   apiHost: string = secret.api_host;
-  gameArray: any[] = [];
+  fullArray: any[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -73,7 +73,26 @@ export class RealtorService {
     });
   };
 
-  getGameArray = (form: NgForm): any[] => {
-    return this.gameArray;
+  getFullArray = (form: NgForm) => {
+    console.log(form);
+
+    let headers: any = {
+      'x-rapidapi-key': this.apiKey,
+      'x-rapidapi-host': this.apiHost,
+      useQueryString: 'true',
+    };
+    let params: any = {
+      city: form.form.value.city,
+      limit: '100',
+      offset: '0',
+      state_code: form.form.value.state,
+      sort: 'relevance',
+      prop_type: 'single_family',
+    };
+
+    return this.http.get(this.realtorUrl, {
+      headers: headers,
+      params: params,
+    });
   };
 }

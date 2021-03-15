@@ -2,14 +2,8 @@
 <app-game-house-card></app-game-house-card>
 
 <section>
-  <form #searchGamePlay="ngForm" (ngSubmit)="onLocationSubmit($event)">
-    <input
-      type="text"
-      name="city"
-      id="city"
-      placeholder="Search by city..."
-      ngModel
-    />
+  <form class="standard-game-form" #searchGamePlay="ngForm" (ngSubmit)="onLocationSubmit(searchGamePlay)">
+    <input type="text" name="city" id="city" placeholder="Search by city..." ngModel />
     <select name="state" id="state" ngModel>
       <option value="" disabled selected>State</option>
       <option value="AL">Alabama</option>
@@ -64,6 +58,7 @@
       <option value="WI">Wisconsin</option>
       <option value="WY">Wyoming</option>
     </select>
+    <button>Start Game!</button>
   </form>
 </section>
 
