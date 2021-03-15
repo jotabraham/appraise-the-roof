@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { secret } from './secrets';
 
 @Injectable({
@@ -10,6 +11,7 @@ export class RealtorService {
     'https://realtor.p.rapidapi.com/properties/v2/list-for-sale';
   apiKey: string = secret.api_key;
   apiHost: string = secret.api_host;
+  gameArray: any[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -31,31 +33,34 @@ export class RealtorService {
   };
 
   searchListings = (form: any): any => {
+    console.log(form);
+
     let headers: any = {
       'x-rapidapi-key': this.apiKey,
       'x-rapidapi-host': this.apiHost,
       useQueryString: 'true',
     };
     let params: any = {
-      city: form.value.city,
+      city: form.form.value.city,
       limit: '100',
-      offset: '0', 
-      state_code: form.value.state,
-      sort: 'relevance'
+      offset: '0',
+      state_code: form.form.value.state,
+      sort: 'relevance',
+      prop_type: 'single_family',
+    };
+    if (form.form.value.beds) {
+      params.beds_min = form.form.value.beds;
     }
-    if (form.beds){
-      params.beds_min = form.beds;
-    }
-    if (form.sqft){
-      if(form.value.sqft === "0-500"){
-          params.sqft_max = 500;
-      } else if(form.value.sqft === "500-1000"){
-          params.sqft_min = 500;
-          params.sqft_max = 1000;
-      } else if(form.value.sqft === "1000-1500"){
+    if (form.sqft) {
+      if (form.form.value.sqft === '0-500') {
+        params.sqft_max = 500;
+      } else if (form.form.value.sqft === '500-1000') {
+        params.sqft_min = 500;
+        params.sqft_max = 1000;
+      } else if (form.form.value.sqft === '1000-1500') {
         params.sqft_min = 1000;
         params.sqft_max = 1500;
-      } else if(form.value.sqft === "1500-2000"){
+      } else if (form.form.value.sqft === '1500-2000') {
         params.sqft_min = 1500;
         params.sqft_max = 2000;
       } else {
@@ -64,7 +69,11 @@ export class RealtorService {
     }
     return this.http.get(this.realtorUrl, {
       headers: headers,
-      params: params
-    })
+      params: params,
+    });
+  };
+
+  getGameArray = (form: NgForm): any[] => {
+    return this.gameArray;
   };
 }

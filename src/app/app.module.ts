@@ -14,6 +14,7 @@ import { StandardGameComponent } from './standard-game/standard-game.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HouseCardComponent } from './house-card/house-card.component';
 import { SearchComponent } from './search/search.component';
+import { GameHouseCardComponent } from './game-house-card/game-house-card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SearchComponent } from './search/search.component';
     StandardGameComponent,
     PageNotFoundComponent,
     HouseCardComponent,
-    SearchComponent
+    SearchComponent,
+    GameHouseCardComponent
   ],
   imports: [
     BrowserModule,

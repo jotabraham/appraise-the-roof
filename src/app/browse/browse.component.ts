@@ -13,17 +13,14 @@ export class BrowseComponent implements OnInit {
   constructor(private realtorService: RealtorService) {}
 
   ngOnInit(): void {
-    this.realtorService.getListing();
+    // this.realtorService.getListing();
   }
 
   onSubmit = (form: NgForm) => {
-    console.log(form);
-    console.log(form.value.searchEvent);
-    this.realtorService
-      .searchListings(form.value.searchEvent)
-      .subscribe((response: any) => {
-        console.log(response);
-        this.realtorService = response;
-      });
+    console.log(form.form.value);
+    this.realtorService.searchListings(form).subscribe((response: any) => {
+      console.log(response);
+      this.houseData = response;
+    });
   };
 }
