@@ -9,6 +9,7 @@ import { RealtorService } from '../realtor.service';
 })
 export class StandardGameComponent implements OnInit {
   gameArray: any[] = [];
+  fullArray: any[] = [];
   // @Output() userInputEvent = new EventEmitter<NgForm>();
 
   constructor(private realtorService: RealtorService) {}
@@ -16,10 +17,33 @@ export class StandardGameComponent implements OnInit {
   ngOnInit(): void {}
 
   onLocationSubmit = (form: NgForm) => {
-    console.log(form.form.value);
-    this.realtorService.searchListings(form).subscribe((response: any) => {
-      console.log(response);
-      this.gameArray = response;
+    this.realtorService.getFullArray(form).subscribe((response: any) => {
+      this.fullArray = response.properties;
+      this.fullArray = this.shuffleGameArray(this.fullArray);
+      this.setGameArray(this.fullArray);
     });
   };
+
+  shuffleGameArray = (array) => {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+  
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+  }
+
+  setGameArray = (fullArrayOfHouses: any[]):void => {
+    this.gameArray = fullArrayOfHouses.slice(0, 10);
+    console.log(this.gameArray);
+  }
 }
