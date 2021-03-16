@@ -5,44 +5,49 @@ import { RealtorService } from '../realtor.service';
 @Component({
   selector: 'app-game-house-card',
   templateUrl: './game-house-card.component.html',
-  styleUrls: ['./game-house-card.component.css']
+  styleUrls: ['./game-house-card.component.css'],
 })
 export class GameHouseCardComponent implements OnInit {
-  totalScore:number = 0;
-
   @Input() gameCards: any;
+  newPointsAwarded: number = 0;
+  score: number = 0;
 
-  constructor(private realtorService: RealtorService) { }
+  constructor(private realtorService: RealtorService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  onGuess = (form: NgForm):number => {
-    let guess:number = form.form.value.guess;
-    let price:number = this.gameCards.price;
-    let number:number = Math.abs(price - guess);
-    let pointsAwarded:number = 0;
-      if (number === 0) {
-         pointsAwarded = 100;
-      } else if (number <= 1000) {
-         pointsAwarded = 80;
-      } else if (number > 1000 && number <=10000) {
-         pointsAwarded = 60;
-      } else if (number > 10000 && number <= 50000) {
-         pointsAwarded = 40;
-      } else if (number > 50000 && number <=100000) {
-         pointsAwarded = 20;
-      } else {
-         pointsAwarded = 5;
-      }
-      console.log("total score", this.totalScore);
-      console.log("guess", guess);
-      console.log("price", price);
-      console.log("number", number);      
-      console.log(`Therefore they were awarded ${pointsAwarded} points`);
-      return this.totalScore += pointsAwarded;
-  }
+  onGuess = (form: NgForm): void => {
+    let guess: number = form.form.value.guess;
+    let price: number = this.gameCards.price;
+    let difference: number = Math.abs(price - guess);
+    let pointsAwarded: number = 0;
+    if (difference === 0) {
+      pointsAwarded = 100;
+    } else if (difference <= 1000) {
+      pointsAwarded = 80;
+    } else if (difference > 1000 && difference <= 10000) {
+      pointsAwarded = 60;
+    } else if (difference > 10000 && difference <= 50000) {
+      pointsAwarded = 40;
+    } else if (difference > 50000 && difference <= 100000) {
+      pointsAwarded = 20;
+    } else {
+      pointsAwarded = 5;
+    }
 
+    console.log('guess', guess);
+    console.log('price', price);
+    console.log('difference', difference);
+    console.log(`Therefore they were awarded ${pointsAwarded} points`);
+    this.realtorService.updateTotalScore(pointsAwarded);
+    let currentTotal = this.realtorService.getTotalScore();
+    console.log('total score', currentTotal);
+    this.score = currentTotal;
+    this.newPointsAwarded = pointsAwarded;
+  };
 
-
+  //   addComma = (value) => {
+  //     let guess = parseInt(value.replace(/\D/g, ''), 10);
+  //     value = guess.toLocaleString();
+  //   };
 }
