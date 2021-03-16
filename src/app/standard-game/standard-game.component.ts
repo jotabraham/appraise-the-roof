@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, ɵɵsetComponentScope } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HighScore } from '../interfaces/high-score';
 import { RealtorService } from '../realtor.service';
