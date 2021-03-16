@@ -12,6 +12,7 @@ export class RealtorService {
   apiKey: string = secret.api_key;
   apiHost: string = secret.api_host;
   fullArray: any[] = [];
+  totalScore: number = 0;
 
   constructor(private http: HttpClient) {}
 
@@ -95,5 +96,13 @@ export class RealtorService {
       headers: headers,
       params: params,
     });
+  };
+
+  updateTotalScore = (score: number) => {
+    this.totalScore += score;
+  };
+
+  getTotalScore = () => {
+    return this.totalScore;
   };
 }
