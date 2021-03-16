@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HighScore } from '../interfaces/high-score';
+import { RealtorService } from '../realtor.service';
 
 @Component({
   selector: 'app-stats',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatsComponent implements OnInit {
 
-  constructor() { }
+  highScoreArray: HighScore[] = [];
+
+  constructor(private realtorService: RealtorService) { }
 
   ngOnInit(): void {
+    this.highScoreArray = this.realtorService.getHighScoresArray();
+    console.log(this.highScoreArray);
   }
 
+  // getAndSetScoreBoard = (objOfHighScore: HighScore):any => {
+  //   // this.highScoreStat = this.realtorService.updateHighScoreArray(objOfHighScore);
+  // }
 }

@@ -1,18 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { HighScore } from './interfaces/high-score';
 import { secret } from './secrets';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RealtorService {
-  realtorUrl: string =
-    'https://realtor.p.rapidapi.com/properties/v2/list-for-sale';
+  realtorUrl: string = 'https://realtor.p.rapidapi.com/properties/v2/list-for-sale';
   apiKey: string = secret.api_key;
   apiHost: string = secret.api_host;
   fullArray: any[] = [];
   totalScore: number = 0;
+  highScoreArray: HighScore[] = [];
+  selectedCityState: any;
 
   constructor(private http: HttpClient) {}
 
@@ -105,4 +107,13 @@ export class RealtorService {
   getTotalScore = () => {
     return this.totalScore;
   };
+
+  updateHighScoreArray = (highScoreObject: HighScore) => {
+    this.highScoreArray.push(highScoreObject);
+    console.log(this.highScoreArray);
+  };
+
+  getHighScoresArray = () => {
+    return this.highScoreArray;
+  }
 }
