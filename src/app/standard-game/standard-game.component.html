@@ -1,5 +1,4 @@
 <app-header></app-header>
-<app-game-house-card></app-game-house-card>
 
 <section>
   <form class="standard-game-form" #searchGamePlay="ngForm" (ngSubmit)="onLocationSubmit(searchGamePlay)">
@@ -61,5 +60,9 @@
     <button>Start Game!</button>
   </form>
 </section>
+
+<ul>
+  <app-game-house-card *ngFor="let gameCard of gameArray" [gameCards]="gameCard"></app-game-house-card>
+</ul>
 
 <div>Score Total</div>

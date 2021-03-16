@@ -88,6 +88,7 @@ export class RealtorService {
       state_code: form.form.value.state,
       sort: 'relevance',
       prop_type: 'single_family',
+      // sqft_min: '0',
     };
 
     return this.http.get(this.realtorUrl, {
