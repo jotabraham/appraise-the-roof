@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ɵɵsetComponentScope } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { HighScore } from '../interfaces/high-score';
 import { RealtorService } from '../realtor.service';
 
 @Component({
@@ -11,7 +12,10 @@ export class StandardGameComponent implements OnInit {
   gameArray: any[] = [];
   fullArray: any[] = [];
   gameCards: any;
-  // @Output() userInputEvent = new EventEmitter<NgForm>();
+  city:string = "";
+  state:string = "";
+
+  @Output() selectedCityState = new EventEmitter<Object>();
 
   constructor(private realtorService: RealtorService) {}
 
@@ -22,6 +26,10 @@ export class StandardGameComponent implements OnInit {
       this.fullArray = response.properties;
       this.fullArray = this.shuffleGameArray(this.fullArray);
       this.setGameArray(this.fullArray);
+      this.city = form.form.value.city;
+      this.state = form.form.value.state;
+      console.log(this.city);
+      console.log(this.state);
     });
   };
 
@@ -40,5 +48,14 @@ export class StandardGameComponent implements OnInit {
   setGameArray = (fullArrayOfHouses: any[]):void => {
     this.gameArray = fullArrayOfHouses.slice(0, 10);
     console.log(this.gameArray);
+  }
+
+  submitHighScore = () => {
+    let highScoreObject: HighScore = {
+      city: this.city,
+      state: this.state,
+      highScore: this.realtorService.getTotalScore(),
+    }
+    this.realtorService.updateHighScoreArray(highScoreObject);
   }
 }
