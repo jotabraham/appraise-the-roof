@@ -1,0 +1,11 @@
+<section>
+   <img src="{{ gameCards?.thumbnail }}" alt="{{ gameCards?.prop_type }}">
+   <p>{{ gameCards?.address.line }}</p>
+   <!-- <p class="hint">{{ gameCards?.building_size.size }} sqft</p> -->
+   <p class="hint">Bedrooms: {{ gameCards?.beds }}</p>
+   <p class="hint">Bathrooms: {{ gameCards?.baths }}</p>
+   <form>
+      <input type="number" placeholder="Enter your guess">
+      <button>Appraise the Roof!</button>
+   </form>
+</section>
