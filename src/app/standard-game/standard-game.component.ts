@@ -12,14 +12,16 @@ export class StandardGameComponent implements OnInit {
   gameArray: any[] = [];
   fullArray: any[] = [];
   gameCards: any;
-  city:string = "";
-  state:string = "";
+  city: string = '';
+  state: string = '';
 
   @Output() selectedCityState = new EventEmitter<Object>();
 
   constructor(private realtorService: RealtorService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.realtorService.clearTotalScore();
+  }
 
   onLocationSubmit = (form: NgForm) => {
     this.realtorService.getFullArray(form).subscribe((response: any) => {
@@ -35,26 +37,30 @@ export class StandardGameComponent implements OnInit {
     });
   };
 
+  filterArray = (fullArrayOfHouses: any[]): void => {
+    this.gameArray = fullArrayOfHouses.filter((house) => {
+      return (
+        house.building_size &&
+        house.thumbnail &&
+        house.beds &&
+        house.baths &&
+        house.price
+      );
+    });
+    // console.log("filtered?", this.gameArray);
+  };
 
-  filterArray = (fullArrayOfHouses: any[]):void => {
-      this.gameArray = fullArrayOfHouses.filter((house)=>{
-        return house.building_size && house.thumbnail && house.beds && house.baths && house.price;
-      })
-      // console.log("filtered?", this.gameArray);
-  }
-
-
-  setGameArray = (fullArrayOfHouses: any[]):void => {
-    this.gameArray = fullArrayOfHouses.slice(0,10);
+  setGameArray = (fullArrayOfHouses: any[]): void => {
+    this.gameArray = fullArrayOfHouses.slice(0, 10);
     console.log(this.gameArray);
-  }
+  };
 
   submitHighScore = () => {
     let highScoreObject: HighScore = {
       city: this.city,
       state: this.state,
       highScore: this.realtorService.getTotalScore(),
-    }
+    };
     this.realtorService.updateHighScoreArray(highScoreObject);
-  }
+  };
 }

@@ -25,17 +25,17 @@ export class GameHouseCardComponent implements OnInit {
     let difference: number = Math.abs(price - guess);
     let pointsAwarded: number = 0;
     if (difference === 0) {
-      pointsAwarded = 100;
+      pointsAwarded = 1000;
     } else if (difference <= 1000) {
-      pointsAwarded = 80;
+      pointsAwarded = 100;
     } else if (difference > 1000 && difference <= 10000) {
-      pointsAwarded = 60;
+      pointsAwarded = 75;
     } else if (difference > 10000 && difference <= 50000) {
-      pointsAwarded = 40;
+      pointsAwarded = 50;
     } else if (difference > 50000 && difference <= 100000) {
-      pointsAwarded = 20;
+      pointsAwarded = 25;
     } else {
-      pointsAwarded = 5;
+      pointsAwarded = 0;
     }
 
     console.log('guess', guess);
@@ -49,25 +49,24 @@ export class GameHouseCardComponent implements OnInit {
     this.newPointsAwarded = pointsAwarded;
   };
 
-  revealSqFtHint = ():void => {
-    if(this.showSqFt === false){
+  revealSqFtHint = (): void => {
+    if (this.showSqFt === false) {
       this.showSqFt = true;
     }
     this.realtorService.deductHintPoints();
-  }
-  revealBedsHint = ():void => {
-    if(this.showBeds === false){
+  };
+  revealBedsHint = (): void => {
+    if (this.showBeds === false) {
       this.showBeds = true;
     }
     this.realtorService.deductHintPoints();
-  }
-  revealBathsHint = ():void => {
-    if(this.showBaths === false){
+  };
+  revealBathsHint = (): void => {
+    if (this.showBaths === false) {
       this.showBaths = true;
     }
     this.realtorService.deductHintPoints();
-  }
-
+  };
 
   //   addComma = (value) => {
   //     let guess = parseInt(value.replace(/\D/g, ''), 10);

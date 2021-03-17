@@ -1,2 +1,9 @@
 <app-header></app-header>
-<!-- <p>{{ totalScore }}</p> -->
+<section>
+  <ul *ngFor="let highScore of highScoreArray; index as i">
+    <li>
+      <p>{{ highScoreArray[i].city }}, {{ highScoreArray[i].state }}</p>
+      <p>High Score: {{ highScoreArray[i].highScore }}</p>
+    </li>
+  </ul>
+</section>

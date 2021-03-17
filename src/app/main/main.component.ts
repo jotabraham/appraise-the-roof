@@ -4,19 +4,19 @@ import { RealtorService } from '../realtor.service';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
-
-  constructor(private realtorService: RealtorService) { }
+  constructor(private realtorService: RealtorService) {}
 
   ngOnInit(): void {
     this.getAndSetListings();
+    console.log('Main page initiation');
   }
 
   getAndSetListings = () => {
-    this.realtorService.getListing().subscribe((response)=>{
+    this.realtorService.getListing().subscribe((response) => {
       console.log(response);
-    })
-  }
+    });
+  };
 }

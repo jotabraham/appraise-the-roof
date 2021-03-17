@@ -8,7 +8,8 @@ import { secret } from './secrets';
   providedIn: 'root',
 })
 export class RealtorService {
-  realtorUrl: string = 'https://realtor.p.rapidapi.com/properties/v2/list-for-sale';
+  realtorUrl: string =
+    'https://realtor.p.rapidapi.com/properties/v2/list-for-sale';
   apiKey: string = secret.api_key;
   apiHost: string = secret.api_host;
   fullArray: any[] = [];
@@ -101,7 +102,9 @@ export class RealtorService {
   };
 
   shuffleGameArray = (array) => {
-    let currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length,
+      temporaryValue,
+      randomIndex;
     while (0 !== currentIndex) {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
@@ -110,7 +113,7 @@ export class RealtorService {
       array[randomIndex] = temporaryValue;
     }
     return array;
-  }
+  };
 
   updateTotalScore = (score: number) => {
     this.totalScore += score;
@@ -125,11 +128,15 @@ export class RealtorService {
     console.log(this.highScoreArray);
   };
 
+  clearTotalScore = () => {
+    this.totalScore = 0;
+  };
+
   getHighScoresArray = () => {
     return this.highScoreArray;
-  }
+  };
 
   deductHintPoints = () => {
-      this.totalScore -= 50;
-  }
+    this.totalScore -= 25;
+  };
 }
