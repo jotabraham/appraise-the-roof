@@ -14,11 +14,5 @@ export class StatsComponent implements OnInit {
 
   ngOnInit(): void {
     this.highScoreArray = this.realtorService.getHighScoresArray();
-    console.log(this.highScoreArray);
-    console.log('Stats page initiation');
   }
-
-  // getAndSetScoreBoard = (objOfHighScore: HighScore):any => {
-  //   // this.highScoreStat = this.realtorService.updateHighScoreArray(objOfHighScore);
-  // }
 }

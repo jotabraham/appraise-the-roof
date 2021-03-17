@@ -14,6 +14,7 @@ export class GameHouseCardComponent implements OnInit {
   showSqFt: boolean = false;
   showBeds: boolean = false;
   showBaths: boolean = false;
+  appraised: boolean = false;
 
   constructor(private realtorService: RealtorService) {}
 
