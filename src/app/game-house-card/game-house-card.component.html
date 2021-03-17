@@ -1,11 +1,12 @@
 <section>
   <img src="{{ gameCards?.thumbnail }}" alt="{{ gameCards?.prop_type }}" />
   <p>{{ gameCards?.address.line }}</p>
-  <!-- <p class="hint">{{ gameCards?.building_size.size }} sqft</p> -->
-  <p class="hint">Bedrooms: {{ gameCards?.beds }}</p>
-  <p class="hint">Bathrooms: {{ gameCards?.baths }}</p>
+  <p>show sq footage</p>
+  <p class="hint" (click)="revealSqFtHint()" [ngClass]="{'hidden-hint': showSqFt === false}">{{ gameCards?.building_size.size }} sqft</p>
+  <p class="hint" (click)="revealBedsHint()" [ngClass]="{'hidden-hint': showBeds === false}">Bedrooms: {{ gameCards?.beds }}</p>
+  <p class="hint" (click)="revealBathsHint()" [ngClass]="{'hidden-hint': showBaths === false}">Bathrooms: {{ gameCards?.baths }}</p>
   <form #guessPrice="ngForm" (ngSubmit)="onGuess(guessPrice)">
-    <input type="text" placeholder="Enter your guess" name="guess" ngModel />
+    <input type="text" placeholder="Enter your guess" name="guess" ngModel/>
     <button>Appraise the Roof!</button>
   </form>
   <p>+ {{ newPointsAwarded }} points awarded!</p>

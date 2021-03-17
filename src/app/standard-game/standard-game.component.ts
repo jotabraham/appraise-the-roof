@@ -24,8 +24,10 @@ export class StandardGameComponent implements OnInit {
   onLocationSubmit = (form: NgForm) => {
     this.realtorService.getFullArray(form).subscribe((response: any) => {
       this.fullArray = response.properties;
-      this.fullArray = this.shuffleGameArray(this.fullArray);
-      this.setGameArray(this.fullArray);
+      this.fullArray = this.realtorService.shuffleGameArray(this.fullArray);
+      // console.log(this.fullArray);
+      this.filterArray(this.fullArray);
+      this.setGameArray(this.gameArray);
       this.city = form.form.value.city;
       this.state = form.form.value.state;
       console.log(this.city);
@@ -33,20 +35,17 @@ export class StandardGameComponent implements OnInit {
     });
   };
 
-  shuffleGameArray = (array) => {
-    let currentIndex = array.length, temporaryValue, randomIndex;
-    while (0 !== currentIndex) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-    return array;
+
+  filterArray = (fullArrayOfHouses: any[]):void => {
+      this.gameArray = fullArrayOfHouses.filter((house)=>{
+        return house.building_size && house.thumbnail && house.beds && house.baths && house.price;
+      })
+      // console.log("filtered?", this.gameArray);
   }
 
+
   setGameArray = (fullArrayOfHouses: any[]):void => {
-    this.gameArray = fullArrayOfHouses.slice(0, 10);
+    this.gameArray = fullArrayOfHouses.slice(0,10);
     console.log(this.gameArray);
   }
 

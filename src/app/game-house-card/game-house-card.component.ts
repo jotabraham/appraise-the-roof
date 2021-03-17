@@ -11,6 +11,9 @@ export class GameHouseCardComponent implements OnInit {
   @Input() gameCards: any;
   newPointsAwarded: number = 0;
   score: number = 0;
+  showSqFt: boolean = false;
+  showBeds: boolean = false;
+  showBaths: boolean = false;
 
   constructor(private realtorService: RealtorService) {}
 
@@ -45,6 +48,26 @@ export class GameHouseCardComponent implements OnInit {
     this.score = currentTotal;
     this.newPointsAwarded = pointsAwarded;
   };
+
+  revealSqFtHint = ():void => {
+    if(this.showSqFt === false){
+      this.showSqFt = true;
+    }
+    this.realtorService.deductHintPoints();
+  }
+  revealBedsHint = ():void => {
+    if(this.showBeds === false){
+      this.showBeds = true;
+    }
+    this.realtorService.deductHintPoints();
+  }
+  revealBathsHint = ():void => {
+    if(this.showBaths === false){
+      this.showBaths = true;
+    }
+    this.realtorService.deductHintPoints();
+  }
+
 
   //   addComma = (value) => {
   //     let guess = parseInt(value.replace(/\D/g, ''), 10);
