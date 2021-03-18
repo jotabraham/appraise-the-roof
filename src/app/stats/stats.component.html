@@ -1,12 +1,19 @@
 <app-header></app-header>
-<button routerLink="/standard-game">Play Again!</button>
-<table>
-  <tr>
-    <th>Location</th>
-    <th>Score</th>
-  </tr>
-  <tr *ngFor="let highScore of highScoreArray; index as i">
-    <td>{{ highScoreArray[i].city }}, {{ highScoreArray[i].state }}</td>
-    <td>{{ highScoreArray[i].highScore }}</td>
-  </tr>
-</table>
+<section class="highscore-table-section">
+  <button routerLink="/standard-game">Play Again!</button>
+  <table>
+    <tr>
+      <th>Location</th>
+      <th>Score</th>
+      <th>Rank</th>
+    </tr>
+    <tr *ngFor="let highScore of highScoreArray; index as i">
+      <td>{{ highScoreArray[i].city }}, {{ highScoreArray[i].state }}</td>
+      <td>{{ highScoreArray[i].highScore }}</td>
+      <td class="gold" *ngIf="highScoreArray[i].highScore >= 900">Gold</td>
+      <td class="silver" *ngIf="highScoreArray[i].highScore < 900 && highScoreArray[i].highScore >= 600">Silver</td>
+      <td class="bronze" *ngIf="highScoreArray[i].highScore < 600 && highScoreArray[i].highScore >= 300">Bronze</td>
+      <td class="rust" *ngIf="highScoreArray[i].highScore < 300">Rust</td>
+    </tr>
+  </table>
+</section>

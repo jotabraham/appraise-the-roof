@@ -1,3 +1,4 @@
+import { getLocaleDateFormat } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -14,7 +15,28 @@ export class RealtorService {
   apiHost: string = secret.api_host;
   fullArray: any[] = [];
   totalScore: number = 0;
-  highScoreArray: HighScore[] = [];
+  highScoreArray: HighScore[] = [
+    {
+    city: "Grand Rapids",
+    state: "MI",
+    highScore: 1000,
+    },
+    {
+    city: "Grand Rapids",
+    state: "MI",
+    highScore: 850,
+    },
+    {
+    city: "Grand Rapids",
+    state: "MI",
+    highScore: 550,
+    },
+    {
+    city: "Grand Rapids",
+    state: "MI",
+    highScore: 100,
+    },
+  ];
   selectedCityState: any;
 
   constructor(private http: HttpClient) {}
