@@ -42,23 +42,6 @@ export class RealtorService {
 
   constructor(private http: HttpClient) {}
 
-  getListing = (): any => {
-    return this.http.get(this.realtorUrl, {
-      headers: {
-        'x-rapidapi-key': this.apiKey,
-        'x-rapidapi-host': this.apiHost,
-        useQueryString: 'true',
-      },
-      params: {
-        city: 'Grand Rapids',
-        limit: '100',
-        offset: '0',
-        state_code: 'MI',
-        sort: 'relevance',
-      },
-    });
-  };
-
   searchListings = (form: any): any => {
     console.log(form);
 
