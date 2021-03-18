@@ -1,0 +1,23 @@
+.highscore-table-section {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin-top: 100px;
+}
+
+.gold {
+   color: goldenrod;
+}
+
+.silver {
+   color: silver;
+}
+
+.bronze {
+   color: #cd7f32;
+}
+
+.rust {
+   color: brown;
+}
