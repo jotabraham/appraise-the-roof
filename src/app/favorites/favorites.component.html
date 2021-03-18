@@ -1,1 +1,9 @@
 <app-header></app-header>
+<div>
+  <app-house-card
+    *ngFor="let favorite of favorites"
+    [houseRef]="favorite"
+    (favoritesEvent)="getAndSetFavorites($event)"
+  >
+  </app-house-card>
+</div>

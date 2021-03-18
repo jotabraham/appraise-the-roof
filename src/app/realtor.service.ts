@@ -17,27 +17,28 @@ export class RealtorService {
   totalScore: number = 0;
   highScoreArray: HighScore[] = [
     {
-    city: "Grand Rapids",
-    state: "MI",
-    highScore: 1000,
+      city: 'Grand Rapids',
+      state: 'MI',
+      highScore: 1000,
     },
     {
-    city: "Grand Rapids",
-    state: "MI",
-    highScore: 850,
+      city: 'Grand Rapids',
+      state: 'MI',
+      highScore: 850,
     },
     {
-    city: "Grand Rapids",
-    state: "MI",
-    highScore: 550,
+      city: 'Grand Rapids',
+      state: 'MI',
+      highScore: 550,
     },
     {
-    city: "Grand Rapids",
-    state: "MI",
-    highScore: 100,
+      city: 'Grand Rapids',
+      state: 'MI',
+      highScore: 100,
     },
   ];
   selectedCityState: any;
+  favorites: any[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -160,5 +161,21 @@ export class RealtorService {
 
   deductHintPoints = () => {
     this.totalScore -= 25;
+  };
+
+  getFavorites = (): any[] => {
+    return this.favorites;
+  };
+
+  toggleFavorites = (favorite: any): void => {
+    let index = this.favorites.findIndex((item) => {
+      return item.property_id === favorite.property_id;
+    });
+    if (index === -1) {
+      this.favorites.push(favorite);
+    } else {
+      this.favorites.splice(index, 1);
+    }
+    console.log('this works');
   };
 }

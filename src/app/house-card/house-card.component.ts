@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-house-card',
@@ -7,8 +7,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HouseCardComponent implements OnInit {
   @Input() houseRef: any;
+  @Input() favoritesRef!: any[];
+  @Output() favoritesEvent = new EventEmitter<any>();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  emitFavoritesEvent = (favorite: any): void => {
+    this.favoritesEvent.emit(favorite);
+  };
 }

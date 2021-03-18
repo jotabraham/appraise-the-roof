@@ -12,9 +12,11 @@ export class BrowseComponent implements OnInit {
 
   constructor(private realtorService: RealtorService) {}
 
-  ngOnInit(): void {
-    // this.realtorService.getListing();
-  }
+  ngOnInit(): void {}
+
+  getAndSetFavorites = (favorite: any) => {
+    this.realtorService.toggleFavorites(favorite);
+  };
 
   onSubmit = (form: NgForm) => {
     console.log(form.form.value);
