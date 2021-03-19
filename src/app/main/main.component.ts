@@ -10,13 +10,8 @@ export class MainComponent implements OnInit {
   constructor(private realtorService: RealtorService) {}
 
   ngOnInit(): void {
-    this.getAndSetListings();
-    console.log('Main page initiation');
+
   }
 
-  getAndSetListings = () => {
-    this.realtorService.getListing().subscribe((response) => {
-      console.log(response);
-    });
-  };
+
 }
