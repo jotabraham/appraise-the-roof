@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { RealtorService } from '../realtor.service';
 
 @Component({
   selector: 'app-search',
@@ -10,7 +9,7 @@ import { RealtorService } from '../realtor.service';
 export class SearchComponent implements OnInit {
   @Output() searchEvent = new EventEmitter<NgForm>();
 
-  constructor(private realtorService: RealtorService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 

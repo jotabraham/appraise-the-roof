@@ -1,15 +1,8 @@
 <app-header></app-header>
-<form>
-  <input
-    type="text"
-    name="searchCity"
-    id="searchCity"
-    placeholder="Search City"
-    (keyup)="cityKeyUp()"
-    NgModel
-  />
+<form #searchFavoritesForm="ngForm" (input)="setSearchCityTerm(searchFavoritesForm)">
+  <input type="text" name="searchCity" id="searchCity" placeholder="Search City" ngModel />
 
-  <select name="state" id="state" (keyup)="stateKeyUp()" NgModel>
+  <select name="state" id="state" (keyup)="setSearchStateTerm(searchFavoritesForm)" ngModel>
     <option value="" disable selected>Select State</option>
     <option value="AL">AL</option>
     <option value="AK">AK</option>
@@ -64,7 +57,7 @@
     <option value="WY">WY</option>
   </select>
 
-  <select name="priceRange" id="priceRange" NgModel>
+  <select name="priceRange" id="priceRange" ngModel>
     <option value="" disable selected>Select Price Range</option>
     <option value="0-50000">$0 - $50,000</option>
     <option value="50000-100000">$50,000 - $100,000</option>
@@ -80,10 +73,7 @@
   </select>
 </form>
 <div>
-  <app-house-card
-    *ngFor="let favorite of favorites"
-    [houseRef]="favorite"
-    (favoritesEvent)="getAndSetFavorites($event)"
-  >
+  <app-house-card *ngFor="let favorite of filterFavorites(searchCityTerm); index as i" [houseRef]="favorite"
+    (favoritesEvent)="getAndSetFavorites($event)">
   </app-house-card>
 </div>
