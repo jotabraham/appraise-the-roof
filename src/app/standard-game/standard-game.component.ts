@@ -11,6 +11,7 @@ import { RealtorService } from '../realtor.service';
 export class StandardGameComponent implements OnInit {
   gameArray: any[] = [];
   fullArray: any[] = [];
+  houseRef: any;
   gameCards: any;
   city: string = '';
   state: string = '';
@@ -62,5 +63,11 @@ export class StandardGameComponent implements OnInit {
       highScore: this.realtorService.getTotalScore(),
     };
     this.realtorService.updateHighScoreArray(highScoreObject);
+  };
+
+  getAndSetFavorites = (favorite: any) => {
+    this.realtorService.toggleFavorites(favorite);
+    console.log("get and set favs game comp works");
+    
   };
 }

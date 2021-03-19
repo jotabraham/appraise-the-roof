@@ -16,6 +16,7 @@ export class BrowseComponent implements OnInit {
 
   getAndSetFavorites = (favorite: any) => {
     this.realtorService.toggleFavorites(favorite);
+    console.log("browse comp get and set favs");
   };
 
   onSubmit = (form: NgForm) => {

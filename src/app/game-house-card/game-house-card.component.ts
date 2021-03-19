@@ -9,12 +9,17 @@ import { RealtorService } from '../realtor.service';
 })
 export class GameHouseCardComponent implements OnInit {
   @Input() gameCards: any;
+  // @Input() houseRef: any;
+  @Input() favoritesRef!: any[];
+  @Output() favoritesEvent = new EventEmitter<any>();
+
   newPointsAwarded: number = 0;
   score: number = 0;
   showSqFt: boolean = false;
   showBeds: boolean = false;
   showBaths: boolean = false;
   appraised: boolean = false;
+  userGuess: number = 0;
 
   constructor(private realtorService: RealtorService) {}
 
@@ -22,6 +27,7 @@ export class GameHouseCardComponent implements OnInit {
 
   onGuess = (form: NgForm): void => {
     let guess: number = form.form.value.guess;
+    this.userGuess = guess;
     let price: number = this.gameCards.price;
     let difference: number = Math.abs(price - guess);
     let pointsAwarded: number = 0;
@@ -55,18 +61,27 @@ export class GameHouseCardComponent implements OnInit {
       this.showSqFt = true;
     }
     this.realtorService.deductHintPoints();
+    this.score = this.realtorService.getTotalScore();
   };
   revealBedsHint = (): void => {
     if (this.showBeds === false) {
       this.showBeds = true;
     }
     this.realtorService.deductHintPoints();
+    this.score = this.realtorService.getTotalScore();
   };
   revealBathsHint = (): void => {
     if (this.showBaths === false) {
       this.showBaths = true;
     }
     this.realtorService.deductHintPoints();
+    this.score = this.realtorService.getTotalScore();
+  };
+
+  emitFavoritesEvent = (favorite: any): void => {
+    this.favoritesEvent.emit(favorite);
+    console.log("game card favorite works");
+    
   };
 
   //   addComma = (value) => {
