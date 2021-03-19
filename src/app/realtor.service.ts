@@ -1,4 +1,3 @@
-import { getLocaleDateFormat } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -61,16 +60,16 @@ export class RealtorService {
     if (form.form.value.beds) {
       params.beds_min = form.form.value.beds;
     }
-    if (form.sqft) {
-      if (form.form.value.sqft === '0-500') {
+    if (form.form.value.sqft) {
+      if (form.form.value.sqft === "0-500") {
         params.sqft_max = 500;
-      } else if (form.form.value.sqft === '500-1000') {
+      } else if (form.form.value.sqft === "500-1000") {
         params.sqft_min = 500;
         params.sqft_max = 1000;
-      } else if (form.form.value.sqft === '1000-1500') {
+      } else if (form.form.value.sqft === "1000-1500") {
         params.sqft_min = 1000;
         params.sqft_max = 1500;
-      } else if (form.form.value.sqft === '1500-2000') {
+      } else if (form.form.value.sqft === "1500-2000") {
         params.sqft_min = 1500;
         params.sqft_max = 2000;
       } else {

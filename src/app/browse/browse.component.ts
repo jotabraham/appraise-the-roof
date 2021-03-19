@@ -25,13 +25,14 @@ export class BrowseComponent implements OnInit {
       console.log(response);
       this.houseData = response.properties.filter((item) => {
         return (
-          item.thumbnail &&
-          item.price &&
-          item.beds &&
-          item.baths &&
-          item.building_size.size &&
-          item.lot_size.size &&
-          item.address.line
+          item.hasOwnProperty("thumbnail") &&
+          item.hasOwnProperty("price") &&
+          item.hasOwnProperty("building_size") &&
+          item.hasOwnProperty("beds") &&
+          item.hasOwnProperty("baths") &&
+          item.hasOwnProperty("building_size") &&
+          item.hasOwnProperty("lot_size") &&
+          item.hasOwnProperty("address")
         );
       });
     });

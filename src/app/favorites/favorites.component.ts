@@ -1,5 +1,5 @@
-import { formatCurrency } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { RealtorService } from '../realtor.service';
 
 @Component({
@@ -8,13 +8,16 @@ import { RealtorService } from '../realtor.service';
   styleUrls: ['./favorites.component.css'],
 })
 export class FavoritesComponent implements OnInit {
+
   favorites: any[] = [];
+  searchCityTerm: string = "";
+  searchStateTerm: string = "";
 
   constructor(private realtorService: RealtorService) {}
 
   ngOnInit(): void {
     this.favorites = this.realtorService.getFavorites();
-    console.log(this.favorites);
+    console.log("favs array: " + this.favorites);
   }
 
   getAndSetFavorites = (favorite: any) => {
@@ -22,19 +25,21 @@ export class FavoritesComponent implements OnInit {
     this.favorites = this.realtorService.getFavorites();
   };
 
-  cityKeyUp = () => {
-    console.log('city key up works');
+  setSearchCityTerm = (form: NgForm):void => {
+    this.searchCityTerm = form.form.value.searchCity;
+  };
+  
+  setSearchStateTerm = (form: NgForm):void => {
+    this.searchStateTerm = form.form.value.state;
   };
 
-  stateKeyUp = () => {
-    console.log('state key up works');
-  };
-
-  // filterFavoritesArray = () => {
-  //   favoritesArray.filter((favorite)=>{
-  //     return form.form
-
-  //   })
-
-  // }
+  filterFavorites = (city:string):any[] => {
+    if (city === "") {
+      return this.favorites;
+    } else {
+      return this.favorites.filter((item) => {
+        return item.address.line === city;
+      })
+    }
+  }
 }
