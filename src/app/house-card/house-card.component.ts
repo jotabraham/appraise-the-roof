@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { RealtorService } from '../realtor.service';
 
 @Component({
   selector: 'app-house-card',
@@ -10,7 +11,7 @@ export class HouseCardComponent implements OnInit {
   @Input() favoritesRef!: any[];
   @Output() favoritesEvent = new EventEmitter<any>();
 
-  constructor() {}
+  constructor(private realtorService: RealtorService) {}
 
   ngOnInit(): void {}
 

@@ -1,3 +1,4 @@
+import { formatCurrency } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RealtorService } from '../realtor.service';
 
@@ -20,4 +21,20 @@ export class FavoritesComponent implements OnInit {
     this.realtorService.toggleFavorites(favorite);
     this.favorites = this.realtorService.getFavorites();
   };
+
+  cityKeyUp = () => {
+    console.log('city key up works');
+  };
+
+  stateKeyUp = () => {
+    console.log('state key up works');
+  };
+
+  // filterFavoritesArray = () => {
+  //   favoritesArray.filter((favorite)=>{
+  //     return form.form
+
+  //   })
+
+  // }
 }

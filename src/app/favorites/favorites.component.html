@@ -1,4 +1,84 @@
 <app-header></app-header>
+<form>
+  <input
+    type="text"
+    name="searchCity"
+    id="searchCity"
+    placeholder="Search City"
+    (keyup)="cityKeyUp()"
+    NgModel
+  />
+
+  <select name="state" id="state" (keyup)="stateKeyUp()" NgModel>
+    <option value="" disable selected>Select State</option>
+    <option value="AL">AL</option>
+    <option value="AK">AK</option>
+    <option value="AR">AR</option>
+    <option value="AZ">AZ</option>
+    <option value="CA">CA</option>
+    <option value="CO">CO</option>
+    <option value="CT">CT</option>
+    <option value="DC">DC</option>
+    <option value="DE">DE</option>
+    <option value="FL">FL</option>
+    <option value="GA">GA</option>
+    <option value="HI">HI</option>
+    <option value="IA">IA</option>
+    <option value="ID">ID</option>
+    <option value="IL">IL</option>
+    <option value="IN">IN</option>
+    <option value="KS">KS</option>
+    <option value="KY">KY</option>
+    <option value="LA">LA</option>
+    <option value="MA">MA</option>
+    <option value="MD">MD</option>
+    <option value="ME">ME</option>
+    <option value="MI">MI</option>
+    <option value="MN">MN</option>
+    <option value="MO">MO</option>
+    <option value="MS">MS</option>
+    <option value="MT">MT</option>
+    <option value="NC">NC</option>
+    <option value="NE">NE</option>
+    <option value="NH">NH</option>
+    <option value="NJ">NJ</option>
+    <option value="NM">NM</option>
+    <option value="NV">NV</option>
+    <option value="NY">NY</option>
+    <option value="ND">ND</option>
+    <option value="OH">OH</option>
+    <option value="OK">OK</option>
+    <option value="OR">OR</option>
+    <option value="PA">PA</option>
+    <option value="RI">RI</option>
+    <option value="SC">SC</option>
+    <option value="SD">SD</option>
+    <option value="TN">TN</option>
+    <option value="TX">TX</option>
+    <option value="UT">UT</option>
+    <option value="VT">VT</option>
+    <option value="VA">VA</option>
+    <option value="WA">WA</option>
+    <option value="WI">WI</option>
+    <option value="WV">WV</option>
+    <option value="WY">WY</option>
+  </select>
+
+  <select name="priceRange" id="priceRange" NgModel>
+    <option value="" disable selected>Select Price Range</option>
+    <option value="0-50000">$0 - $50,000</option>
+    <option value="50000-100000">$50,000 - $100,000</option>
+    <option value="100000-150000">$100,000 - $150,000</option>
+    <option value="150000-200000">$150,000 - $200,000</option>
+    <option value="200000-250000">$200,000 - $250,000</option>
+    <option value="250000-300000">$250,000 - $300,000</option>
+    <option value="300000-350000">$300,000 - $350,000</option>
+    <option value="350000-400000">$350,000 - $400,000</option>
+    <option value="400000-450000">$400,000 - $450,000</option>
+    <option value="450000-500000">$450,000 - $500,000</option>
+    <option value="50000">$500,000+</option>
+  </select>
+</form>
 <div>
   <app-house-card
     *ngFor="let favorite of favorites"
