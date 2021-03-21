@@ -30,7 +30,6 @@ export class BrowseComponent implements OnInit {
           item.hasOwnProperty("building_size") &&
           item.hasOwnProperty("beds") &&
           item.hasOwnProperty("baths") &&
-          item.hasOwnProperty("building_size") &&
           item.hasOwnProperty("lot_size") &&
           item.hasOwnProperty("address")
         );

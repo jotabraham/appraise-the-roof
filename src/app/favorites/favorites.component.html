@@ -1,8 +1,9 @@
 <app-header></app-header>
-<form #searchFavoritesForm="ngForm" (input)="setSearchCityTerm(searchFavoritesForm)">
-  <input type="text" name="searchCity" id="searchCity" placeholder="Search City" ngModel />
+<form #searchFavoritesForm="ngForm">
+  
+  <input type="text" name="searchCity" id="searchCity" placeholder="Search City" [(ngModel)]="searchTerms.searchCityTerm" />
 
-  <select name="state" id="state" (keyup)="setSearchStateTerm(searchFavoritesForm)" ngModel>
+  <select name="state" id="state" [(ngModel)]="searchTerms.searchStateTerm">
     <option value="" disable selected>Select State</option>
     <option value="AL">AL</option>
     <option value="AK">AK</option>
@@ -57,23 +58,23 @@
     <option value="WY">WY</option>
   </select>
 
-  <select name="priceRange" id="priceRange" ngModel>
+  <select name="priceRange" id="priceRange" [(ngModel)]="searchTerms.searchMinPriceTerm">
     <option value="" disable selected>Select Price Range</option>
-    <option value="0-50000">$0 - $50,000</option>
-    <option value="50000-100000">$50,000 - $100,000</option>
-    <option value="100000-150000">$100,000 - $150,000</option>
-    <option value="150000-200000">$150,000 - $200,000</option>
-    <option value="200000-250000">$200,000 - $250,000</option>
-    <option value="250000-300000">$250,000 - $300,000</option>
-    <option value="300000-350000">$300,000 - $350,000</option>
-    <option value="350000-400000">$350,000 - $400,000</option>
-    <option value="400000-450000">$400,000 - $450,000</option>
-    <option value="450000-500000">$450,000 - $500,000</option>
-    <option value="50000">$500,000+</option>
+    <option value="0">$0 - $50,000</option>
+    <option value="50000">$50,000 - $100,000</option>
+    <option value="100000">$100,000 - $150,000</option>
+    <option value="150000">$150,000 - $200,000</option>
+    <option value="200000">$200,000 - $250,000</option>
+    <option value="250000">$250,000 - $300,000</option>
+    <option value="300000">$300,000 - $350,000</option>
+    <option value="350000">$350,000 - $400,000</option>
+    <option value="400000">$400,000 - $450,000</option>
+    <option value="450000">$450,000 - $500,000</option>
+    <option value="500000">$500,000+</option>
   </select>
 </form>
 <div>
-  <app-house-card *ngFor="let favorite of filterFavorites(searchCityTerm); index as i" [houseRef]="favorite"
+  <app-house-card *ngFor="let favorite of filterFavorites(searchTerms); index as i" [houseRef]="favorite"
     (favoritesEvent)="getAndSetFavorites($event)">
   </app-house-card>
 </div>

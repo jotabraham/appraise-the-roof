@@ -1,6 +1,7 @@
 <main>
   <section>
     <h1>{{ houseRef?.address.city }}, {{ houseRef?.address.state_code }}</h1>
+    <p>{{houseRef?.price}}</p>
     <img src="{{ houseRef?.thumbnail }}" alt="{{ houseRef?.prop_type }}" />
     <p>{{ houseRef?.address.line }}</p>
     <p>Beds: {{ houseRef?.beds }} | Baths: {{ houseRef?.baths }}</p>
