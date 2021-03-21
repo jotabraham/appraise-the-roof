@@ -39,7 +39,7 @@ export class RealtorService {
   selectedCityState: any;
   favorites: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   searchListings = (form: any): any => {
     console.log(form);
@@ -155,6 +155,7 @@ export class RealtorService {
     });
     if (index === -1) {
       this.favorites.push(favorite);
+      console.log(this.favorites)
     } else {
       this.favorites.splice(index, 1);
     }
