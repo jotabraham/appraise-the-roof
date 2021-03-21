@@ -39,13 +39,15 @@ export class StandardGameComponent implements OnInit {
   };
 
   filterArray = (fullArrayOfHouses: any[]): void => {
-    this.gameArray = fullArrayOfHouses.filter((house) => {
+    this.gameArray = fullArrayOfHouses.filter((item) => {
       return (
-        house.building_size &&
-        house.thumbnail &&
-        house.beds &&
-        house.baths &&
-        house.price
+        item.hasOwnProperty("thumbnail") &&
+        item.hasOwnProperty("price") &&
+        item.hasOwnProperty("beds") &&
+        item.hasOwnProperty("baths") &&
+        item.hasOwnProperty("building_size") &&
+        item.hasOwnProperty("lot_size") &&
+        item.hasOwnProperty("address")
       );
     });
     // console.log("filtered?", this.gameArray);
