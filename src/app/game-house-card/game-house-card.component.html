@@ -21,10 +21,10 @@
   <div class="guess">
     <form #guessPrice="ngForm" (ngSubmit)="onGuess(guessPrice); appraised = true;">
       <div class="guess-input-container">
-        <input class="guess-input" type="number" placeholder="Enter your guess" name="guess" autocomplete="off"
-          (input)="addCommas(guessPrice)" [ngClass]="numberWithCommas !== null ? 'hide-input' : 'show-input'" ngModel />
-        <div class="guess-w-commas" [ngClass]="numberWithCommas === null ? 'hide-input' : 'show-input'">
-          {{numberWithCommas}}</div>
+        <input class="guess-input" id="guess{{ indexRef }}" type="number" placeholder="Enter your guess" name="guess"
+          autocomplete="off" (input)="addCommas(guessPrice)" ngModel />
+        <label for="guess{{ indexRef }}" class="guess-label">
+          {{numberWithCommas}}</label>
       </div>
       <button [disabled]="appraised">Appraise the Roof!</button>
     </form>
