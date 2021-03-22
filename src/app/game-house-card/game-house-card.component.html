@@ -1,27 +1,36 @@
 <section class="main">
   <div class="image-container">
     <img class="image" src="{{ gameCards?.thumbnail }}" alt="{{ gameCards?.prop_type }}" />
-    <button class="add-favorite" (click)="emitFavoritesEvent(gameCards); favEvent()"
-      [ngClass]="favorited ? 'favorited':'not-favorited'"></button>
+    <button class="add-favorite" (click)="emitFavoritesEvent(gameCards)"
+      [ngClass]="{favorited: checkFavs(gameCards)}"></button>
   </div>
-  <p>{{ gameCards?.address.line }}</p>
-  <button *ngIf="showSqFt === false" [disabled]="appraised || showSqFt" (click)="revealSqFtHint()">Show Sq Ft:</button>
-  <p class="hint" [ngClass]="{'hidden-hint': showSqFt === false}">{{
-    gameCards?.building_size.size }} Sq Ft</p>
-  <button *ngIf="showBeds === false" [disabled]="appraised || showBeds" (click)="revealBedsHint()">Show Beds:</button>
-  <p class="hint" [ngClass]="{'hidden-hint': showBeds === false}">Bedrooms: {{
-    gameCards?.beds }}</p>
-  <button *ngIf="showBaths === false" [disabled]="appraised || showBaths" (click)="revealBathsHint()">Show
-    Baths:</button>
-  <p class="hint" [ngClass]="{'hidden-hint': showBaths === false}">Bathrooms: {{
-    gameCards?.baths }}</p>
-  <form #guessPrice="ngForm" (ngSubmit)="onGuess(guessPrice); appraised = true;">
-    <input type="number" placeholder="Enter your guess" name="guess" ngModel />
-    <button [disabled]="appraised">Appraise the Roof!</button>
-  </form>
-  <p *ngIf="appraised">+ {{ newPointsAwarded }} points awarded!</p>
-  <p>Current Score: {{ score }}</p>
-
+  <div class="details-hints">
+    <p>{{ gameCards?.address.line }}</p>
+    <button *ngIf="showSqFt === false" [disabled]="appraised || showSqFt" (click)="revealSqFtHint()">Show Sq
+      Ft:</button>
+    <p class="hint" [ngClass]="{'hidden-hint': showSqFt === false}">{{
+      gameCards?.building_size.size }} Sq Ft</p>
+    <button *ngIf="showBeds === false" [disabled]="appraised || showBeds" (click)="revealBedsHint()">Show Beds:</button>
+    <p class="hint" [ngClass]="{'hidden-hint': showBeds === false}">Bedrooms: {{
+      gameCards?.beds }}</p>
+    <button *ngIf="showBaths === false" [disabled]="appraised || showBaths" (click)="revealBathsHint()">Show
+      Baths:</button>
+    <p class="hint" [ngClass]="{'hidden-hint': showBaths === false}">Bathrooms: {{
+      gameCards?.baths }}</p>
+  </div>
+  <div class="guess">
+    <form #guessPrice="ngForm" (ngSubmit)="onGuess(guessPrice); appraised = true;">
+      <div class="guess-input-container">
+        <input class="guess-input" type="number" placeholder="Enter your guess" name="guess" autocomplete="off"
+          (input)="addCommas(guessPrice)" [ngClass]="numberWithCommas !== null ? 'hide-input' : 'show-input'" ngModel />
+        <div class="guess-w-commas" [ngClass]="numberWithCommas === null ? 'hide-input' : 'show-input'">
+          {{numberWithCommas}}</div>
+      </div>
+      <button [disabled]="appraised">Appraise the Roof!</button>
+    </form>
+    <p *ngIf="appraised">+ {{ newPointsAwarded }} points awarded!</p>
+    <p>Current Score: {{ score }}</p>
+  </div>
   <div class="results-container" *ngIf="appraised">
     <p>Your Guess: ${{ userGuess | number}}</p>
     <p>Cost of House: ${{ gameCards?.price | number}}</p>

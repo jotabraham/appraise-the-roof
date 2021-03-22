@@ -10,17 +10,19 @@ export class HouseCardComponent implements OnInit {
   @Input() houseRef: any;
   @Input() favoritesRef!: any[];
   @Output() favoritesEvent = new EventEmitter<any>();
-  favorited: boolean = false;
 
   constructor(private realtorService: RealtorService) { }
 
   ngOnInit(): void { }
 
-  favEvent() {
-    this.favorited = !this.favorited;
-  }
 
   emitFavoritesEvent = (favorite: any): void => {
     this.favoritesEvent.emit(favorite);
   };
+
+  checkFavs = (house: any): boolean => {
+    return this.realtorService.favorites.some((item) => {
+      return item.property_id === house.property_id;
+    })
+  }
 }

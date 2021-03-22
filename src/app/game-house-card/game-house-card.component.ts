@@ -9,7 +9,6 @@ import { RealtorService } from '../realtor.service';
 })
 export class GameHouseCardComponent implements OnInit {
   @Input() gameCards: any;
-  // @Input() houseRef: any;
   @Input() favoritesRef!: any[];
   @Output() favoritesEvent = new EventEmitter<any>();
 
@@ -20,7 +19,7 @@ export class GameHouseCardComponent implements OnInit {
   showBaths: boolean = false;
   appraised: boolean = false;
   userGuess: number = 0;
-  favorited: boolean = false;
+  numberWithCommas: string = null;
 
   constructor(private realtorService: RealtorService) { }
 
@@ -57,10 +56,6 @@ export class GameHouseCardComponent implements OnInit {
     this.newPointsAwarded = pointsAwarded;
   };
 
-  favEvent() {
-    this.favorited = !this.favorited;
-  }
-
   revealSqFtHint = (): void => {
     if (this.showSqFt === false) {
       this.showSqFt = true;
@@ -89,8 +84,27 @@ export class GameHouseCardComponent implements OnInit {
 
   };
 
-  //   addComma = (value) => {
-  //     let guess = parseInt(value.replace(/\D/g, ''), 10);
-  //     value = guess.toLocaleString();
-  //   };
+  checkFavs = (house: any): boolean => {
+    return this.realtorService.favorites.some((item) => {
+      return item.property_id === house.property_id;
+    })
+  }
+
+  //   fnf.addEventListener('input', function(evt){
+  //     let n = parseInt(this.value.replace(/\D/g,''),10);
+  //     fnf.value = n.toLocaleString();
+  // }, false);
+
+  addCommas = (form: NgForm) => {
+    // console.log(form.form.value.guess);
+    if (form.form.value.guess !== null) {
+      this.numberWithCommas = form.form.value.guess.toLocaleString();
+      this.numberWithCommas.replace(/\D/g, ''), 10;
+      console.log(this.numberWithCommas);
+    } else {
+      this.numberWithCommas = null;
+    }
+
+  }
+
 }

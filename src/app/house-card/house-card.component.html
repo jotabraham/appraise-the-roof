@@ -3,8 +3,8 @@
     <h1>{{ houseRef?.address.city }}, {{ houseRef?.address.state_code }}</h1>
     <div class="image-container">
       <img class="image" src="{{ houseRef?.thumbnail }}" alt="{{ houseRef?.prop_type }}" />
-      <button class="add-favorite" (click)="emitFavoritesEvent(houseRef); favEvent()"
-        [ngClass]="favorited ? 'favorited':'not-favorited'"></button>
+      <button class="add-favorite" (click)="emitFavoritesEvent(houseRef)"
+        [ngClass]="{favorited: checkFavs(houseRef)}"></button>
     </div>
     <p>${{houseRef?.price | number}}</p>
     <p>{{ houseRef?.address.line }}</p>
