@@ -8,3 +8,42 @@ a {
     text-decoration: none;
     cursor: pointer;
 }
+
+body {
+    overflow-x: hidden;
+}
+
+.add-favorite {
+    position: absolute;
+    right: 5px;
+    top: 15px;
+    background-color: transparent;
+    border: none;
+    height: 100px;
+    width: 70px;
+    background-size: cover;
+    cursor: pointer;
+    outline: none;
+    background-image: url("src/assets/favorite-diamond.svg");
+ }
+
+ .favorited {
+    background-image: url("src/assets/favorited-diamond.svg");
+ }
+
+ /* Chrome, Safari, Edge, Opera */
+.guess-input::-webkit-outer-spin-button,
+.guess-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  outline: none;
+}
+
+/* Firefox */
+.guess-input[type=number] {
+  -moz-appearance: textfield;
+}
+
+ /* .not-favorited {
+
+ } */

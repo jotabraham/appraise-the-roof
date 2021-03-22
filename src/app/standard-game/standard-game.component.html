@@ -62,9 +62,12 @@
 </section>
 
 <ul>
-  <app-game-house-card *ngFor="let gameCard of gameArray; index as i" [gameCards]="gameCard" (favoritesEvent)="getAndSetFavorites($event)"></app-game-house-card>
+  <app-game-house-card *ngFor="let gameCard of gameArray; index as i" [gameCards]="gameCard"
+    (favoritesEvent)="getAndSetFavorites($event)"></app-game-house-card>
 </ul>
 
-<p>See Your Rank!</p>
-<button (click)="submitHighScore()">Submit High Score</button>
-<button routerLink="/stats">Stats</button>
+<div class="results-popup">
+  <p>See Your Rank!</p>
+  <button (click)="submitHighScore()">Submit High Score</button>
+  <button routerLink="/stats">Stats</button>
+</div>
