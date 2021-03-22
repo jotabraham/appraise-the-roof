@@ -1,53 +1,53 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-    color: whitesmoke;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: black;
 }
 
 a {
-    text-decoration: none;
-    cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 body {
-    overflow-x: hidden;
-   background: linear-gradient(to bottom right, #45DBF7, #0E63A9);
-   background-repeat: no-repeat;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom right, #45dbf7, #0e63a9);
+  background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 button {
-  background: linear-gradient(to right, #94C741, #39B54A);
+  background: linear-gradient(to right, #94c741, #39b54a);
   padding: 5px 10px;
   border: none;
   border-radius: 15px;
-  color: black;
+  color: white;
   font-weight: 600;
   outline: none;
   cursor: pointer;
 }
 
 .add-favorite {
-    position: absolute;
-    right: 5px;
-    top: 15px;
-    background-color: transparent;
-    border: none;
-    height: 100px;
-    width: 70px;
-    background-size: cover;
-    cursor: pointer;
-    outline: none;
-    background-image: url("src/assets/favorite-diamond.svg");
- }
+  position: absolute;
+  right: 5px;
+  top: 15px;
+  background-color: transparent;
+  border: none;
+  height: 100px;
+  width: 70px;
+  background-size: cover;
+  cursor: pointer;
+  outline: none;
+  background-image: url("src/assets/favorite-diamond.svg");
+}
 
- .favorited {
-    background-image: url("src/assets/favorited-diamond.svg");
- }
+.favorited {
+  background-image: url("src/assets/favorited-diamond.svg");
+}
 
- /* Chrome, Safari, Edge, Opera */
+/* Chrome, Safari, Edge, Opera */
 .guess-input::-webkit-outer-spin-button,
 .guess-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -56,10 +56,10 @@ button {
 }
 
 /* Firefox */
-.guess-input[type=number] {
+.guess-input[type="number"] {
   -moz-appearance: textfield;
 }
 
- /* .not-favorited {
+/* .not-favorited {
 
  } */
