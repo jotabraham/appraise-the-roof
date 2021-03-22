@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: whitesmoke;
 }
 
 a {
@@ -11,6 +13,18 @@ a {
 
 body {
     overflow-x: hidden;
+   background: linear-gradient(to bottom right, #45DBF7, #0E63A9);
+   background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+button {
+  background: linear-gradient(to right, #94C741, #39B54A);
+  padding: 5px 10px;
+  border: none;
+  border-radius: 15px;
+  color: black;
+  font-weight: 600;
 }
 
 .add-favorite {

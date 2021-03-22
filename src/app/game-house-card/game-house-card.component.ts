@@ -45,13 +45,8 @@ export class GameHouseCardComponent implements OnInit {
       pointsAwarded = 0;
     }
 
-    console.log('guess', guess);
-    console.log('price', price);
-    console.log('difference', difference);
-    console.log(`Therefore they were awarded ${pointsAwarded} points`);
     this.realtorService.updateTotalScore(pointsAwarded);
     let currentTotal = this.realtorService.getTotalScore();
-    console.log('total score', currentTotal);
     this.score = currentTotal;
     this.newPointsAwarded = pointsAwarded;
   };
@@ -89,11 +84,6 @@ export class GameHouseCardComponent implements OnInit {
       return item.property_id === house.property_id;
     })
   }
-
-  //   fnf.addEventListener('input', function(evt){
-  //     let n = parseInt(this.value.replace(/\D/g,''),10);
-  //     fnf.value = n.toLocaleString();
-  // }, false);
 
   addCommas = (form: NgForm) => {
     // console.log(form.form.value.guess);

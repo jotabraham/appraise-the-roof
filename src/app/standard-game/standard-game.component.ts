@@ -33,8 +33,8 @@ export class StandardGameComponent implements OnInit {
       this.setGameArray(this.gameArray);
       this.city = form.form.value.city;
       this.state = form.form.value.state;
-      console.log(this.city);
-      console.log(this.state);
+      // console.log(this.city);
+      // console.log(this.state);
     });
   };
 

@@ -6,6 +6,15 @@
    margin-top: 100px;
 }
 
+th, td {
+   padding: 5px;
+}
+
+.rank-cell {
+   background-color: black;
+   text-align: center;
+}
+
 .gold {
    color: goldenrod;
 }
@@ -19,5 +28,5 @@
 }
 
 .rust {
-   color: brown;
+   color: rgb(199, 51, 51);
 }
