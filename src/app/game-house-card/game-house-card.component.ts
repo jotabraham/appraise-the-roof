@@ -9,7 +9,8 @@ import { RealtorService } from '../realtor.service';
 })
 export class GameHouseCardComponent implements OnInit {
   @Input() gameCards: any;
-  @Input() favoritesRef!: any[];
+  // @Input() favoritesRef!: any[];
+  @Input() indexRef: number;
   @Output() favoritesEvent = new EventEmitter<any>();
 
   newPointsAwarded: number = 0;
@@ -90,11 +91,19 @@ export class GameHouseCardComponent implements OnInit {
     if (form.form.value.guess !== null) {
       this.numberWithCommas = form.form.value.guess.toLocaleString();
       this.numberWithCommas.replace(/\D/g, ''), 10;
+      this.numberWithCommas = `$${this.numberWithCommas}`
       console.log(this.numberWithCommas);
     } else {
       this.numberWithCommas = null;
     }
 
   }
+
+  // setFocus(name) {    
+  //   const ele = this.aForm.nativeElement[name];    
+  //   if (ele) {
+  //     ele.focus();
+  //   }
+  // }
 
 }
