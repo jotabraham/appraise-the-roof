@@ -8,12 +8,11 @@
 .logo-container {
     position: fixed;
     top: 280px;
+    width: 50vw;
 }
 
 .logo {
-    height: 100px;
-    width: 100px;
-    background-color: blue;
+    width: 100%;
 }
 
 .start-how-to {
