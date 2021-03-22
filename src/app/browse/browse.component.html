@@ -1,9 +1,6 @@
 <app-header></app-header>
 <app-search (searchEvent)="onSubmit($event)"></app-search>
-<ul>
-  <app-house-card
-    *ngFor="let house of houseData; index as i"
-    [houseRef]="house"
-    (favoritesEvent)="getAndSetFavorites($event)"
-  ></app-house-card>
+<ul class="house-card-container">
+  <app-house-card *ngFor="let house of houseData; index as i" [houseRef]="house"
+    (favoritesEvent)="getAndSetFavorites($event)"></app-house-card>
 </ul>

@@ -20,10 +20,11 @@ export class GameHouseCardComponent implements OnInit {
   showBaths: boolean = false;
   appraised: boolean = false;
   userGuess: number = 0;
+  favorited: boolean = false;
 
-  constructor(private realtorService: RealtorService) {}
+  constructor(private realtorService: RealtorService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onGuess = (form: NgForm): void => {
     let guess: number = form.form.value.guess;
@@ -56,6 +57,10 @@ export class GameHouseCardComponent implements OnInit {
     this.newPointsAwarded = pointsAwarded;
   };
 
+  favEvent() {
+    this.favorited = !this.favorited;
+  }
+
   revealSqFtHint = (): void => {
     if (this.showSqFt === false) {
       this.showSqFt = true;
@@ -81,7 +86,7 @@ export class GameHouseCardComponent implements OnInit {
   emitFavoritesEvent = (favorite: any): void => {
     this.favoritesEvent.emit(favorite);
     console.log("game card favorite works");
-    
+
   };
 
   //   addComma = (value) => {

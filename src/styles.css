@@ -8,3 +8,28 @@ a {
     text-decoration: none;
     cursor: pointer;
 }
+
+body {
+    overflow-x: hidden;
+}
+
+.add-favorite {
+    position: absolute;
+    right: 5px;
+    top: 15px;
+    background-color: transparent;
+    border: none;
+    height: 100px;
+    width: 70px;
+    background-size: cover;
+    cursor: pointer;
+    outline: none;
+ }
+
+ .favorited {
+    background-image: url("src/assets/favorited-diamond.svg");
+ }
+
+ .not-favorited {
+    background-image: url("src/assets/favorite-diamond.svg");
+ }

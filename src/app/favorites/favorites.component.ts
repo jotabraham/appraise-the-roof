@@ -10,11 +10,7 @@ import { RealtorService } from '../realtor.service';
 export class FavoritesComponent implements OnInit {
 
   favorites: any[] = [];
-  // searchCityTerm: string = "";
-  // searchStateTerm: string = "";
-  // searchPriceRangeTerm: number = 0;
-  // searchMinPrice: number = null;
-  // searchMaxPrice: number = null;
+  favorited: boolean = true;
   searchTerms: any = {
     searchCityTerm: "",
     searchStateTerm: "",

@@ -5,3 +5,13 @@
    flex-direction: column;
    margin-top: 100px;
 }
+
+.results-popup {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   position: fixed;
+   bottom: 50px;
+   left: 50%;
+   transform: translate(-50%, 0);
+}
