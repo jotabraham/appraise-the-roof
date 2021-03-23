@@ -1,6 +1,11 @@
 <app-header></app-header>
 <carousel (activeSlideChange)="log($event)" [interval]="false">
   <slide *ngFor="let slide of gameArray; let index = index">
+    <img
+      [src]="slide?.thumbnail"
+      alt="image slide"
+      style="display: block; width: 100%"
+    />
     <div class="carousel-caption">
       <h4>Slide {{ index }}</h4>
       <p>{{ slide.address.line }}</p>
