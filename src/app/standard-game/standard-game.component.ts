@@ -18,7 +18,7 @@ export class StandardGameComponent implements OnInit {
 
   @Output() selectedCityState = new EventEmitter<Object>();
 
-  constructor(private realtorService: RealtorService) {}
+  constructor(private realtorService: RealtorService) { }
 
   ngOnInit(): void {
     this.realtorService.clearTotalScore();
@@ -29,33 +29,16 @@ export class StandardGameComponent implements OnInit {
       this.fullArray = response.properties;
       this.fullArray = this.realtorService.shuffleGameArray(this.fullArray);
       // console.log(this.fullArray);
-      this.filterArray(this.fullArray);
-      this.setGameArray(this.gameArray);
+      this.realtorService.filterArray(this.fullArray);
+      // this.realtorService.setGameArray(this.fullArray);
+      this.gameArray = this.realtorService.setGameArray(this.fullArray);
+      console.log("from game, game array", this.gameArray);
+      console.log("from game, full array", this.fullArray);
       this.city = form.form.value.city;
       this.state = form.form.value.state;
       // console.log(this.city);
       // console.log(this.state);
     });
-  };
-
-  filterArray = (fullArrayOfHouses: any[]): void => {
-    this.gameArray = fullArrayOfHouses.filter((item) => {
-      return (
-        item.hasOwnProperty("thumbnail") &&
-        item.hasOwnProperty("price") &&
-        item.hasOwnProperty("beds") &&
-        item.hasOwnProperty("baths") &&
-        item.hasOwnProperty("building_size") &&
-        item.hasOwnProperty("lot_size") &&
-        item.hasOwnProperty("address")
-      );
-    });
-    // console.log("filtered?", this.gameArray);
-  };
-
-  setGameArray = (fullArrayOfHouses: any[]): void => {
-    this.gameArray = fullArrayOfHouses.slice(0, 10);
-    console.log(this.gameArray);
   };
 
   submitHighScore = () => {
@@ -70,6 +53,6 @@ export class StandardGameComponent implements OnInit {
   getAndSetFavorites = (favorite: any) => {
     this.realtorService.toggleFavorites(favorite);
     console.log("get and set favs game comp works");
-    
+
   };
 }

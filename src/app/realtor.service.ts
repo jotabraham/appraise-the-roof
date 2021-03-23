@@ -14,11 +14,14 @@ export class RealtorService {
   apiHost: string = secret.api_host;
   fullArray: any[] = [];
   totalScore: number = 0;
+  filteredArray: any[] = [];
+  gameArray: any[] = [];
+
   highScoreArray: HighScore[] = [
     {
       city: 'Grand Rapids',
       state: 'MI',
-      highScore: 1000,
+      highScore: 100,
     },
     {
       city: 'Grand Rapids',
@@ -33,7 +36,7 @@ export class RealtorService {
     {
       city: 'Grand Rapids',
       state: 'MI',
-      highScore: 100,
+      highScore: 1000,
     },
   ];
   selectedCityState: any;
@@ -106,6 +109,27 @@ export class RealtorService {
     });
   };
 
+  filterArray = (fullArrayOfHouses: any[]): void => {
+    this.filteredArray = fullArrayOfHouses.filter((item) => {
+      return (
+        item.hasOwnProperty("thumbnail") &&
+        item.hasOwnProperty("price") &&
+        item.hasOwnProperty("beds") &&
+        item.hasOwnProperty("baths") &&
+        item.hasOwnProperty("building_size") &&
+        item.hasOwnProperty("lot_size") &&
+        item.hasOwnProperty("address")
+      );
+    });
+    // console.log("filtered?", this.gameArray);
+  };
+
+  setGameArray = (fullArrayOfHouses: any[]): any[] => {
+    this.gameArray = fullArrayOfHouses.slice(0, 10);
+    console.log("from service", fullArrayOfHouses);
+    return this.gameArray;
+  };
+
   shuffleGameArray = (array) => {
     let currentIndex = array.length,
       temporaryValue,
@@ -133,11 +157,20 @@ export class RealtorService {
     console.log(this.highScoreArray);
   };
 
+  sortHighScoreArray = (highScoreArray: HighScore[]): HighScore[] => {
+    return highScoreArray.sort((a, b): any => {
+      b.highScore - a.highScore;
+      console.log("testing");
+
+    })
+  }
+
   clearTotalScore = () => {
     this.totalScore = 0;
   };
 
   getHighScoresArray = () => {
+    this.sortHighScoreArray(this.highScoreArray);
     return this.highScoreArray;
   };
 
