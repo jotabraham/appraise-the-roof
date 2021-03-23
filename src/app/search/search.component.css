@@ -1,15 +1,27 @@
 .main {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
 .form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 175px 0 0 0;
+}
+
+.city-state-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.sqft-beds-container {
+  display: flex;
   flex-direction: column;
-  margin: 200px 0 0 0;
+  align-items: center;
 }
 
 .input-field {
@@ -23,4 +35,54 @@
 
 ::placeholder {
   color: white;
+}
+
+@media screen and (min-width: 600px) {
+
+  .h1-style {
+    text-align: center;
+  }
+
+  .form {
+    margin: 150px 0 0 0;
+    align-items: unset;
+  }
+
+  .city-state-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .sqft-beds-container {
+    display: flex;
+    flex-direction: column;
+    align-items: unset;
+  }
+
+}
+@media screen and (min-width: 768px) {
+
+  .h1-style {
+    position: absolute;
+    margin-top: -60px;
+  }
+
+  .form {
+    margin: 125px 0 0 0;
+    flex-direction: row;
+  }
+
+  .city-state-container {
+    flex-direction: row;
+  }
+
+  .sqft-beds-container {
+    flex-direction: row;
+  }
+
+  .button {
+    position: absolute;
+    margin-top: 60px;
+  }
+
 }
