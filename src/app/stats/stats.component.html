@@ -1,6 +1,6 @@
 <app-header></app-header>
 <section class="highscore-table-section">
-  <button routerLink="/standard-game">Play Again!</button>
+  <h1 class="h1-style">My Stats</h1>
   <table class="highscore-table">
     <tr>
       <th>Location</th>
@@ -11,17 +11,30 @@
       <td>{{ highScoreArray[i].city }}, {{ highScoreArray[i].state }}</td>
       <td>{{ highScoreArray[i].highScore }}</td>
       <td class="rank-cell" *ngIf="highScoreArray[i].highScore >= 900">
-        <img class="medal" src="assets/medal-gold.png" alt="gold">
+        <img class="medal" src="assets/medal-gold.png" alt="gold" />
       </td>
-      <td class="rank-cell" *ngIf="highScoreArray[i].highScore < 900 && highScoreArray[i].highScore >= 600">
-        <img class="medal" src="assets/medal-silver.png" alt="gold">
+      <td
+        class="rank-cell"
+        *ngIf="
+          highScoreArray[i].highScore < 900 &&
+          highScoreArray[i].highScore >= 600
+        "
+      >
+        <img class="medal" src="assets/medal-silver.png" alt="gold" />
       </td>
-      <td class="rank-cell" *ngIf="highScoreArray[i].highScore < 600 && highScoreArray[i].highScore >= 300">
-        <img class="medal" src="assets/medal-bronze.png" alt="gold">
+      <td
+        class="rank-cell"
+        *ngIf="
+          highScoreArray[i].highScore < 600 &&
+          highScoreArray[i].highScore >= 300
+        "
+      >
+        <img class="medal" src="assets/medal-bronze.png" alt="gold" />
       </td>
       <td class="rank-cell" *ngIf="highScoreArray[i].highScore < 300">
-        <img class="medal" src="assets/medal-frown.png" alt="gold">
+        <img class="medal" src="assets/medal-frown.png" alt="gold" />
       </td>
     </tr>
   </table>
+  <button class="button" routerLink="/standard-game">Play Again</button>
 </section>
