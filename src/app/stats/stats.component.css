@@ -1,23 +1,71 @@
 .highscore-table-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 100px;
-}
-
-th,
-td {
-  color: white;
-  padding: 5px;
-}
-
-.rank-cell {
-  /* background-color: black; */
-  text-align: center;
-  height: 50px;
-}
-
-.medal {
-  height: 100%;
-}
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 100px;
+   }
+   
+   .play-again-button {
+      margin: 50px 0;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      box-shadow: 0 0 4px 4px rgba(0, 0, 0, .05);
+   }
+   
+   .play-again-button:hover {
+      box-shadow: 0 0 4px 4px rgba(0, 0, 0, .02);
+   }
+   
+   .highscore-table {
+      width: 80vw;
+      border-collapse: collapse;
+      font-size: 14px;
+   }
+   
+   th, td {
+      color: white;
+      padding: 5px;
+      border-bottom: solid 1px white;
+      height: 50px;
+   }
+   
+   .heading {
+      text-transform: uppercase;
+      letter-spacing: .5px;
+   }
+   
+   .h-location {
+      text-align: start;
+   }
+   
+   .score, .rank-cell {
+      text-align: center;
+   }
+   
+   .city-state {
+      text-transform: capitalize;
+   }
+   
+   .medal {
+     height: 100%;
+   }
+   
+   @media screen and (min-width: 600px) {
+   
+      .highscore-table {
+         width: 350px;
+      }
+   
+    }
+   @media screen and (min-width: 768px) {
+   
+      .highscore-table {
+         width: 500px;
+         font-size: 18px;
+      }
+   
+      .play-again-button {
+         font-size: 18px;
+      }
+    }
