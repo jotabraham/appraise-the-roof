@@ -27,16 +27,45 @@
   display: flex;
   flex-direction: row;
   /* justify-content: center; */
-  margin: 0px 10px;
+  margin: 10px 0px;
+  position: relative;
+  height: 45px;
+  width: 70vw;
 }
 
 .hint {
   margin: 0px 10px;
+  position: absolute;
+  top: 0;
+  width: 100px;
+  text-align: center;
+  padding: 5px;
+  align-items: center;
+  pointer-events: none;
 }
 
+.hint-sqft {
+  left: 0;
+}
+
+.hint-bed {
+left: 50%;
+transform: translate(-50%, 0);
+
+}
+
+.hint-bath {
+  right: 0;
+}
+
+
 .hint-button {
-  width: 100%;
+  top: 0;
+  width: 100px;
   height: 30px;
+  position: absolute;
+  padding: 0;
+  margin: 0;
 }
 
 .guess-form {
@@ -64,6 +93,7 @@
   /* outline: none; */
   text-align: center;
   font-size: 16px;
+  cursor: text;
 }
 
 .guess-label {
@@ -77,6 +107,7 @@
   display: flex;
   font-size: 16px;
   overflow: hidden;
+  cursor: text;
 }
 
 input.guess-input:focus + label.guess-label {
@@ -86,6 +117,6 @@ input.guess-input:focus + label.guess-label {
   color: transparent;
 }
 
-.show-input::placeholder {
+input.guess-input::placeholder {
   color: black;
 }

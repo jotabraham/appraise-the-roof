@@ -1,75 +1,42 @@
 <section class="main">
   <div class="image-container">
-    <img
-      class="image"
-      src="{{ gameCards?.thumbnail }}"
-      alt="{{ gameCards?.prop_type }}"
-    />
-    <button
-      class="add-favorite"
-      (click)="emitFavoritesEvent(gameCards)"
-      [ngClass]="{ favorited: checkFavs(gameCards) }"
-      title="Add/Remove Favorite"
-    ></button>
+    <img class="image" src="{{ gameCards?.thumbnail }}" alt="{{ gameCards?.prop_type }}" />
+    <button class="add-favorite" (click)="emitFavoritesEvent(gameCards)" [ngClass]="{ favorited: checkFavs(gameCards) }"
+      title="Add/Remove Favorite"></button>
   </div>
   <div class="hints-container">
     <p>{{ gameCards?.address.line }}</p>
     <div class="details-hints">
-      <button
-        class="hint-button"
-        *ngIf="showSqFt === false"
-        [disabled]="appraised || showSqFt"
-        (click)="revealSqFtHint()"
-      >
+      <button class="hint-button hint-sqft" *ngIf="showSqFt === false" [disabled]="appraised || showSqFt"
+        (click)="revealSqFtHint()">
         Show Sq Ft
       </button>
-      <p class="hint" [ngClass]="{ 'hidden-hint': showSqFt === false }">
+      <p class="hint hint-sqft" [ngClass]="{ 'hidden-hint': showSqFt === false }">
         {{ gameCards?.building_size.size }} Sq Ft
       </p>
-      <button
-        class="hint-button"
-        *ngIf="showBeds === false"
-        [disabled]="appraised || showBeds"
-        (click)="revealBedsHint()"
-      >
+      <button class="hint-button hint-bed" *ngIf="showBeds === false" [disabled]="appraised || showBeds"
+        (click)="revealBedsHint()">
         Show Beds
       </button>
-      <p class="hint" [ngClass]="{ 'hidden-hint': showBeds === false }">
+      <p class="hint hint-bed" [ngClass]="{ 'hidden-hint': showBeds === false }">
         Beds: {{ gameCards?.beds }}
       </p>
-      <button
-        class="hint-button"
-        *ngIf="showBaths === false"
-        [disabled]="appraised || showBaths"
-        (click)="revealBathsHint()"
-      >
+      <button class="hint-button hint-bath" *ngIf="showBaths === false" [disabled]="appraised || showBaths"
+        (click)="revealBathsHint()">
         Show Baths
       </button>
-      <p class="hint" [ngClass]="{ 'hidden-hint': showBaths === false }">
+      <p class="hint hint-bath" [ngClass]="{ 'hidden-hint': showBaths === false }">
         Baths: {{ gameCards?.baths }}
       </p>
     </div>
   </div>
   <div class="guess">
-    <form
-      class="guess-form"
-      #guessPrice="ngForm"
-      (ngSubmit)="onGuess(guessPrice); appraised = true"
-    >
+    <form class="guess-form" #guessPrice="ngForm" (ngSubmit)="onGuess(guessPrice); appraised = true">
       <div class="guess-input-container">
-        <input
-          class="guess-input"
-          id="guess{{ indexRef }}"
-          type="number"
-          placeholder="Enter your guess"
-          name="guess"
-          autocomplete="off"
-          (input)="addCommas(guessPrice)"
-          ngModel
-        />
+        <input class="guess-input" id="guess{{ indexRef }}" type="number" placeholder="Enter your guess" name="guess"
+          autocomplete="off" (input)="addCommas(guessPrice)" ngModel />
         <label for="guess{{ indexRef }}" class="guess-label">
-          {{ numberWithCommas }}</label
-        >
+          {{ numberWithCommas }}</label>
       </div>
       <button [disabled]="appraised">Appraise the Roof!</button>
     </form>
