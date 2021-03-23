@@ -1,15 +1,15 @@
 <app-header></app-header>
 <section class="highscore-table-section">
-  <button routerLink="/standard-game">Play Again!</button>
+  <button class="play-again-button" routerLink="/standard-game">Play Again</button>
   <table class="highscore-table">
     <tr>
-      <th>Location</th>
-      <th>Score</th>
-      <th>Rank</th>
+      <th class="heading h-location">Location</th>
+      <th class="heading h-score">Score</th>
+      <th class="heading h-rank">Rank</th>
     </tr>
     <tr *ngFor="let highScore of highScoreArray; index as i">
-      <td>{{ highScoreArray[i].city }}, {{ highScoreArray[i].state }}</td>
-      <td>{{ highScoreArray[i].highScore }}</td>
+      <td class="city-state">{{ highScoreArray[i].city }}, {{ highScoreArray[i].state }}</td>
+      <td class="score">{{ highScoreArray[i].highScore }}</td>
       <td class="rank-cell" *ngIf="highScoreArray[i].highScore >= 900">
         <img class="medal" src="assets/medal-gold.png" alt="gold">
       </td>
