@@ -15,10 +15,11 @@ export class StandardGameComponent implements OnInit {
   gameCards: any;
   city: string = '';
   state: string = '';
+  slideChangeMessage = '';
 
   @Output() selectedCityState = new EventEmitter<Object>();
 
-  constructor(private realtorService: RealtorService) { }
+  constructor(private realtorService: RealtorService) {}
 
   ngOnInit(): void {
     this.realtorService.clearTotalScore();
@@ -32,8 +33,8 @@ export class StandardGameComponent implements OnInit {
       this.realtorService.filterArray(this.fullArray);
       // this.realtorService.setGameArray(this.fullArray);
       this.gameArray = this.realtorService.setGameArray(this.fullArray);
-      console.log("from game, game array", this.gameArray);
-      console.log("from game, full array", this.fullArray);
+      console.log('from game, game array', this.gameArray);
+      console.log('from game, full array', this.fullArray);
       this.city = form.form.value.city;
       this.state = form.form.value.state;
       // console.log(this.city);
@@ -52,7 +53,10 @@ export class StandardGameComponent implements OnInit {
 
   getAndSetFavorites = (favorite: any) => {
     this.realtorService.toggleFavorites(favorite);
-    console.log("get and set favs game comp works");
-
+    console.log('get and set favs game comp works');
   };
+
+  log(event: number) {
+    this.slideChangeMessage = `Slide has been switched: ${event}`;
+  }
 }
