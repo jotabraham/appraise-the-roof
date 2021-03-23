@@ -10,9 +10,11 @@ import { RealtorService } from '../realtor.service';
 export class StatsComponent implements OnInit {
   highScoreArray: HighScore[] = [];
 
-  constructor(private realtorService: RealtorService) {}
+  constructor(private realtorService: RealtorService) { }
 
   ngOnInit(): void {
+
     this.highScoreArray = this.realtorService.getHighScoresArray();
+    // this.highScoreArray = this.realtorService.sortHighScoreArray(this.highScoreArray);
   }
 }
