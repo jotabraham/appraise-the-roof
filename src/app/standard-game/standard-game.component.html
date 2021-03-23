@@ -1,4 +1,12 @@
 <app-header></app-header>
+<carousel (activeSlideChange)="log($event)" [interval]="false">
+  <slide *ngFor="let slide of gameArray; let index = index">
+    <div class="carousel-caption">
+      <h4>Slide {{ index }}</h4>
+      <p>{{ slide.address.line }}</p>
+    </div>
+  </slide>
+</carousel>
 
 <section>
   <form

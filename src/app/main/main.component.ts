@@ -7,11 +7,13 @@ import { RealtorService } from '../realtor.service';
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
+  popup: boolean = false;
+
   constructor(private realtorService: RealtorService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
-  }
-
-
+  showPopup = (): void => {
+    this.popup = !this.popup;
+  };
 }

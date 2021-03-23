@@ -42,7 +42,7 @@ export class RealtorService {
   selectedCityState: any;
   favorites: any[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   searchListings = (form: any): any => {
     console.log(form);
@@ -64,15 +64,15 @@ export class RealtorService {
       params.beds_min = form.form.value.beds;
     }
     if (form.form.value.sqft) {
-      if (form.form.value.sqft === "0-500") {
+      if (form.form.value.sqft === '0-500') {
         params.sqft_max = 500;
-      } else if (form.form.value.sqft === "500-1000") {
+      } else if (form.form.value.sqft === '500-1000') {
         params.sqft_min = 500;
         params.sqft_max = 1000;
-      } else if (form.form.value.sqft === "1000-1500") {
+      } else if (form.form.value.sqft === '1000-1500') {
         params.sqft_min = 1000;
         params.sqft_max = 1500;
-      } else if (form.form.value.sqft === "1500-2000") {
+      } else if (form.form.value.sqft === '1500-2000') {
         params.sqft_min = 1500;
         params.sqft_max = 2000;
       } else {
@@ -112,13 +112,13 @@ export class RealtorService {
   filterArray = (fullArrayOfHouses: any[]): void => {
     this.filteredArray = fullArrayOfHouses.filter((item) => {
       return (
-        item.hasOwnProperty("thumbnail") &&
-        item.hasOwnProperty("price") &&
-        item.hasOwnProperty("beds") &&
-        item.hasOwnProperty("baths") &&
-        item.hasOwnProperty("building_size") &&
-        item.hasOwnProperty("lot_size") &&
-        item.hasOwnProperty("address")
+        item.hasOwnProperty('thumbnail') &&
+        item.hasOwnProperty('price') &&
+        item.hasOwnProperty('beds') &&
+        item.hasOwnProperty('baths') &&
+        item.hasOwnProperty('building_size') &&
+        item.hasOwnProperty('lot_size') &&
+        item.hasOwnProperty('address')
       );
     });
     // console.log("filtered?", this.gameArray);
@@ -126,7 +126,7 @@ export class RealtorService {
 
   setGameArray = (fullArrayOfHouses: any[]): any[] => {
     this.gameArray = fullArrayOfHouses.slice(0, 10);
-    console.log("from service", fullArrayOfHouses);
+    console.log('from service', fullArrayOfHouses);
     return this.gameArray;
   };
 
@@ -157,21 +157,20 @@ export class RealtorService {
     console.log(this.highScoreArray);
   };
 
-  sortHighScoreArray = (highScoreArray: HighScore[]): HighScore[] => {
-    return highScoreArray.sort((a, b): any => {
-      b.highScore - a.highScore;
-      console.log("testing");
-
-    })
-  }
-
   clearTotalScore = () => {
     this.totalScore = 0;
   };
 
   getHighScoresArray = () => {
-    this.sortHighScoreArray(this.highScoreArray);
-    return this.highScoreArray;
+    return this.highScoreArray.sort((a, b) => {
+      if (a.highScore > b.highScore) {
+        return -1;
+      }
+      if (a.highScore < b.highScore) {
+        return 1;
+      }
+      return 0;
+    });
   };
 
   deductHintPoints = () => {
@@ -188,7 +187,7 @@ export class RealtorService {
     });
     if (index === -1) {
       this.favorites.push(favorite);
-      console.log(this.favorites)
+      console.log(this.favorites);
     } else {
       this.favorites.splice(index, 1);
     }
