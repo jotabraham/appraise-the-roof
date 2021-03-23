@@ -1,17 +1,26 @@
 .standard-game-form {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.input-field {
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 5px 15px;
+  margin: 5px;
 }
 
 .results-popup {
-   display: flex;
-   align-items: center;
-   flex-direction: column;
-   position: fixed;
-   bottom: 50px;
-   left: 50%;
-   transform: translate(-50%, 0);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
