@@ -11,13 +11,19 @@ th, td {
 }
 
 .rank-cell {
-   background-color: black;
+   /* background-color: black; */
    text-align: center;
+   height: 50px;
 }
 
-.gold {
-   color: goldenrod;
+.medal {
+   height: 100%;
 }
+
+/* .gold { */
+   /* color: goldenrod; */
+
+/* } */
 
 .silver {
    color: silver;

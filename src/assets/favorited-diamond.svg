@@ -3,21 +3,22 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 39.5 56.6" style="enable-background:new 0 0 39.5 56.6;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#7CC241;}
-	.st1{fill:#86C647;}
-	.st2{fill:#90C94F;}
+	.st0{fill:#39B54A;}
+	.st1{opacity:0.29;}
+	.st2{fill:#94C741;}
+	.st3{opacity:0.4;}
 </style>
 <g>
 	
-		<image style="overflow:visible;opacity:0.35;enable-background:new    ;" width="138" height="254" xlink:href="8557F71D6485D8FF.png"  transform="matrix(0.2296 0 0 0.2296 3.9582 -0.8603)">
+		<image style="overflow:visible;opacity:0.35;enable-background:new    ;" width="144" height="257" xlink:href="8557F71D6485D8FF.png"  transform="matrix(0.2253 0 0 0.2253 3.5795 -0.6513)">
 	</image>
 	<g>
 		<polygon class="st0" points="10.1,28.3 19.8,52.2 29.4,28.3 19.8,4.3 		"/>
 	</g>
-	<g>
-		<polygon class="st1" points="15.7,28.3 19.8,52.2 23.8,28.3 19.8,4.3 		"/>
+	<g class="st1">
+		<polygon class="st2" points="15.7,28.3 19.8,52.2 23.8,28.3 19.8,4.3 		"/>
 	</g>
-	<g>
+	<g class="st3">
 		<polygon class="st2" points="15.7,28.3 23.8,28.3 19.8,4.3 		"/>
 	</g>
 </g>
