@@ -10,12 +10,18 @@
     <tr *ngFor="let highScore of highScoreArray; index as i">
       <td>{{ highScoreArray[i].city }}, {{ highScoreArray[i].state }}</td>
       <td>{{ highScoreArray[i].highScore }}</td>
-      <td class="rank-cell gold" *ngIf="highScoreArray[i].highScore >= 900">Gold</td>
-      <td class="rank-cell silver" *ngIf="highScoreArray[i].highScore < 900 && highScoreArray[i].highScore >= 600">
-        Silver</td>
-      <td class="rank-cell bronze" *ngIf="highScoreArray[i].highScore < 600 && highScoreArray[i].highScore >= 300">
-        Bronze</td>
-      <td class="rank-cell rust" *ngIf="highScoreArray[i].highScore < 300">Rust</td>
+      <td class="rank-cell" *ngIf="highScoreArray[i].highScore >= 900">
+        <img class="medal" src="assets/medal-gold.png" alt="gold">
+      </td>
+      <td class="rank-cell" *ngIf="highScoreArray[i].highScore < 900 && highScoreArray[i].highScore >= 600">
+        <img class="medal" src="assets/medal-silver.png" alt="gold">
+      </td>
+      <td class="rank-cell" *ngIf="highScoreArray[i].highScore < 600 && highScoreArray[i].highScore >= 300">
+        <img class="medal" src="assets/medal-bronze.png" alt="gold">
+      </td>
+      <td class="rank-cell" *ngIf="highScoreArray[i].highScore < 300">
+        <img class="medal" src="assets/medal-frown.png" alt="gold">
+      </td>
     </tr>
   </table>
 </section>

@@ -11,22 +11,11 @@ th, td {
 }
 
 .rank-cell {
-   background-color: black;
+   /* background-color: black; */
    text-align: center;
+   height: 50px;
 }
 
-.gold {
-   color: goldenrod;
-}
-
-.silver {
-   color: silver;
-}
-
-.bronze {
-   color: #cd7f32;
-}
-
-.rust {
-   color: rgb(199, 51, 51);
+.medal {
+   height: 100%;
 }
