@@ -17,7 +17,7 @@ export class StandardGameComponent implements OnInit {
   showSqFt: number[] = [];
   showBeds: number[] = [];
   showBaths: number[] = [];
-  guesswithCommasAndDollarSign: string = "";
+  guesswithCommasAndDollarSign: string = '';
   score: number = 0;
   userGuess: number = 0;
   newPointsAwarded: number = 0;
@@ -32,19 +32,20 @@ export class StandardGameComponent implements OnInit {
   // @Output() selectedCityState = new EventEmitter<Object>();
   // @Output() favoritesEvent = new EventEmitter<any>();
 
-  constructor(private realtorService: RealtorService) { }
+  constructor(private realtorService: RealtorService) {}
 
   ngOnInit(): void {
+    console.log('this works');
     this.realtorService.clearTotalScore();
     this.favorites = this.realtorService.getFavorites();
   }
 
   nextIndex = () => {
-    this.currentIndex++
-  }
+    this.currentIndex++;
+  };
 
   onGuess = (form: NgForm, index: number): void => {
-    console.log("index", this.gameArray[index]);
+    console.log('index', this.gameArray[index]);
     this.userGuess = form.form.value.guess;
     if (!this.appraised.includes(index)) {
       this.appraised.push(index);
@@ -68,16 +69,14 @@ export class StandardGameComponent implements OnInit {
       let currentTotal = this.realtorService.getTotalScore();
       this.score = currentTotal;
       this.newPointsAwarded = pointsAwarded;
-      this.guesswithCommasAndDollarSign = "";
+      this.guesswithCommasAndDollarSign = '';
       form.reset();
       if (this.appraised.length === this.gameArray.length) {
         this.submitHighScore();
         this.gameFinished = true;
       }
     }
-
   };
-
 
   onLocationSubmit = (form: NgForm) => {
     this.realtorService.getFullArray(form).subscribe((response: any) => {
@@ -96,6 +95,19 @@ export class StandardGameComponent implements OnInit {
       // console.log(this.state);
     });
   };
+
+  // reloadComponent() {
+  //   let currentUrl = this.router.url;
+  //       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  //       this.router.onSameUrlNavigation = 'reload';
+  //       this.router.navigate([currentUrl]);
+  //   }
+
+  // reloadComponent () {
+  //   this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+  //     this.router.navigate(['Your actualComponent']);
+  // });
+  // }
 
   submitHighScore = () => {
     let highScoreObject: HighScore = {
@@ -135,45 +147,44 @@ export class StandardGameComponent implements OnInit {
 
   checkIndexGuessedSqft = (index: number): boolean => {
     return this.showSqFt.includes(index);
-  }
+  };
   checkIndexGuessedBeds = (index: number): boolean => {
     return this.showBeds.includes(index);
-  }
+  };
   checkIndexGuessedBaths = (index: number): boolean => {
     return this.showBaths.includes(index);
-  }
+  };
   checkIndexAppraised = (index: number): boolean => {
     return this.appraised.includes(index);
-  }
+  };
 
   onFavorite = (favorite: any): void => {
     // this.favoritesEvent.emit(favorite);
     this.realtorService.toggleFavorites(favorite);
     this.favorites = this.realtorService.getFavorites();
-    console.log("emit works");
+    console.log('emit works');
   };
 
   checkFavs = (house: any): boolean => {
     // console.log("check favs works");
     return this.realtorService.favorites.some((item) => {
       return item.property_id === house.property_id;
-    })
-  }
+    });
+  };
 
   addCommas = (form: NgForm) => {
     // console.log(form.form.value.guess);
     if (form.form.value.guess !== null) {
       this.guesswithCommasAndDollarSign = form.form.value.guess.toLocaleString();
       this.guesswithCommasAndDollarSign.replace(/\D/g, ''), 10;
-      this.guesswithCommasAndDollarSign = `$${this.guesswithCommasAndDollarSign}`
+      this.guesswithCommasAndDollarSign = `$${this.guesswithCommasAndDollarSign}`;
       console.log(this.guesswithCommasAndDollarSign);
     } else {
       this.guesswithCommasAndDollarSign = null;
     }
-  }
+  };
 
   closeWindow = () => {
     this.open = !this.open;
-  }
-
+  };
 }
