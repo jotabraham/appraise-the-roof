@@ -7,8 +7,14 @@
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none   !important;;
   cursor: pointer;
+  color: white   !important;;
+
+}
+a:hover {
+  text-decoration: none   !important;;
+  color: white   !important;;
 }
 
 body {
@@ -36,6 +42,10 @@ button {
   margin: 10px;
 }
 
+button:focus, a:focus, img:focus, input:focus, div:focus {
+  outline: none !important;
+}
+
 .button:hover {
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.02);
 }
@@ -56,10 +66,12 @@ button {
   cursor: pointer;
   outline: none;
   background-image: url("src/assets/favorite-diamond.svg");
+  box-shadow: none;
 }
 
 .favorited {
   background-image: url("src/assets/favorited-diamond.svg");
+  box-shadow: none;
 }
 
 /* Chrome, Safari, Edge, Opera */

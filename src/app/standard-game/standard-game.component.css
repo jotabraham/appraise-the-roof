@@ -21,10 +21,14 @@
 
 .house-image-container {
 position: relative;
+width: 100%;
 }
 
 .house-image {
   width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
 
 .appraise-button {
@@ -147,7 +151,7 @@ position: relative;
 .hint, .hint-button {
   position: absolute;
   margin: 0;
-  width: 20vw;
+  width: 20%;
   line-height: 15px;
   color: white;
   top: 50%;
@@ -272,4 +276,25 @@ input.guess-input::placeholder {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (min-width: 600px) {
+  .house-game-card, .city-slide-info {
+    width: 75vw;
+  }
+
+  .hint, .hint-button {
+    width: 25%;
+
+}
+}
+
+@media screen and (min-width: 768px) {
+  .house-game-card, .city-slide-info {
+    width: 40vw;
+  }
+
+  .house-image {
+    max-height: 500px;
+  }
 }
