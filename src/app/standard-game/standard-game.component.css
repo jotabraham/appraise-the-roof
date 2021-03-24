@@ -27,6 +27,10 @@ position: relative;
   width: 100%;
 }
 
+.appraise-button {
+  margin-bottom: 100px;
+}
+
 .add-favorite, .favorited {
   right: -13px;
   top: -3px;
