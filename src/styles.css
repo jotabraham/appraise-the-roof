@@ -17,6 +17,10 @@ a:hover {
   color: white   !important;;
 }
 
+p {
+  margin: 0;
+}
+
 body {
   overflow-x: hidden;
   background: linear-gradient(to bottom right, #45dbf7, #0e63a9);
@@ -56,8 +60,8 @@ button:focus, a:focus, img:focus, input:focus, div:focus {
 
 .add-favorite {
   position: absolute;
-  right: 5px;
-  top: 15px;
+  /* right: 5px;
+  top: 15px; */
   background-color: transparent;
   border: none;
   height: 100px;
@@ -72,6 +76,12 @@ button:focus, a:focus, img:focus, input:focus, div:focus {
 .favorited {
   background-image: url("src/assets/favorited-diamond.svg");
   box-shadow: none;
+}
+
+.add-favorite, .favorited {
+  right: -13px;
+  top: -3px;
+  z-index: 3;
 }
 
 /* Chrome, Safari, Edge, Opera */

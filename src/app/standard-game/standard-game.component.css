@@ -35,11 +35,6 @@ width: 100%;
   margin-bottom: 100px;
 }
 
-.add-favorite, .favorited {
-  right: -13px;
-  top: -3px;
-}
-
 .city-slide-info {
   height: 20px;
   margin: 7px;
@@ -244,10 +239,6 @@ input.guess-input::placeholder {
   color: black;
   letter-spacing: .5px;
   margin: 0;
-}
-
-.add-favorite, .favorited {
-  z-index: 3;
 }
 
 .carousel-control-next {
