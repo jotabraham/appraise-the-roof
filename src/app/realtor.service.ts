@@ -18,34 +18,34 @@ export class RealtorService {
   gameArray: any[] = [];
 
   highScoreArray: HighScore[] = [
-    {
-      city: 'Grand Rapids',
-      state: 'MI',
-      highScore: 100,
-    },
-    {
-      city: 'Grand Rapids',
-      state: 'MI',
-      highScore: 850,
-    },
-    {
-      city: 'Grand Rapids',
-      state: 'MI',
-      highScore: 550,
-    },
-    {
-      city: 'Grand Rapids',
-      state: 'MI',
-      highScore: 1000,
-    },
+    // {
+    //   city: 'Grand Rapids',
+    //   state: 'MI',
+    //   highScore: 100,
+    // },
+    // {
+    //   city: 'Grand Rapids',
+    //   state: 'MI',
+    //   highScore: 850,
+    // },
+    // {
+    //   city: 'Grand Rapids',
+    //   state: 'MI',
+    //   highScore: 550,
+    // },
+    // {
+    //   city: 'Grand Rapids',
+    //   state: 'MI',
+    //   highScore: 1000,
+    // },
   ];
   selectedCityState: any;
   favorites: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   searchListings = (form: any): any => {
-    console.log(form);
+    // console.log(form);
 
     let headers: any = {
       'x-rapidapi-key': this.apiKey,
@@ -86,7 +86,7 @@ export class RealtorService {
   };
 
   getFullArray = (form: NgForm) => {
-    console.log(form);
+    // console.log(form);
 
     let headers: any = {
       'x-rapidapi-key': this.apiKey,
@@ -109,8 +109,10 @@ export class RealtorService {
     });
   };
 
-  filterArray = (fullArrayOfHouses: any[]): void => {
-    this.filteredArray = fullArrayOfHouses.filter((item) => {
+  filterArray = (fullArrayOfHouses: any[]): any[] => {
+    console.log("filter test");
+
+    return fullArrayOfHouses.filter((item) => {
       return (
         item.hasOwnProperty('thumbnail') &&
         item.hasOwnProperty('price') &&
@@ -126,7 +128,7 @@ export class RealtorService {
 
   setGameArray = (fullArrayOfHouses: any[]): any[] => {
     this.gameArray = fullArrayOfHouses.slice(0, 10);
-    console.log('from service', fullArrayOfHouses);
+    // console.log('from service', fullArrayOfHouses);
     return this.gameArray;
   };
 
@@ -141,7 +143,7 @@ export class RealtorService {
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     }
-    return array;
+    return this.filterArray(array);
   };
 
   updateTotalScore = (score: number) => {
@@ -191,6 +193,6 @@ export class RealtorService {
     } else {
       this.favorites.splice(index, 1);
     }
-    console.log('this works');
+    // console.log('this works');
   };
 }

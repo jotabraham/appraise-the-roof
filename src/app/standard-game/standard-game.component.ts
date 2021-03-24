@@ -84,7 +84,7 @@ export class StandardGameComponent implements OnInit {
       this.fullArray = response.properties;
       this.fullArray = this.realtorService.shuffleGameArray(this.fullArray);
       // console.log(this.fullArray);
-      this.realtorService.filterArray(this.fullArray);
+      // this.fullArray = this.realtorService.filterArray(this.fullArray);
       // this.realtorService.setGameArray(this.fullArray);
       this.gameArray = this.realtorService.setGameArray(this.fullArray);
       console.log('from game, game array', this.gameArray);
