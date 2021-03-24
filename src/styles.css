@@ -32,7 +32,12 @@ button {
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 30px;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.05);
   margin: 10px;
+}
+
+.button:hover {
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.02);
 }
 
 ::placeholder {

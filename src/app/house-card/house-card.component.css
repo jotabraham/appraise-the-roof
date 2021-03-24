@@ -1,11 +1,58 @@
+.house-card-container {
+  border: 2px solid white;
+  border-radius: 30px;
+  max-width: 500px;
+  margin: 20px 0px 10px 0px;
+  padding: 20px;
+}
+
+.header {
+  color: white;
+}
+
+.house-details-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.house-info {
+  color: white;
+  margin: 10px 0px;
+}
+
 .image-container {
-    width: 90vw;
-    position: relative;
+  width: 100%;
+  position: relative;
 }
 
 .image {
-    width: 100%;
-    /* max-height: 250px; */
-    object-fit: cover;
-    object-position: center;
+  width: 100%;
+  /* max-height: 250px; */
+  object-fit: cover;
+  object-position: center;
+}
+
+.listing-button {
+  background: linear-gradient(to right, #94c741, #39b54a);
+  width: 131px;
+  border: none;
+  font-weight: 600;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  margin: 10px 0px;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.listing-button:hover {
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.02);
+}
+
+.listing-link {
+  text-decoration: none;
+  color: white;
 }
