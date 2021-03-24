@@ -1,5 +1,3 @@
-
-
 .main {
   display: flex;
   flex-direction: column;
@@ -14,14 +12,15 @@
   margin-top: 100px;
 }
 
-.house-game-card, .city-slide-info {
+.house-game-card,
+.city-slide-info {
   position: relative;
   width: 90vw;
 }
 
 .house-image-container {
-position: relative;
-width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .house-image {
@@ -40,14 +39,15 @@ width: 100%;
   margin: 7px;
 }
 
-.city-info, .slide-info {
+.city-info,
+.slide-info {
   position: absolute;
   top: 0;
   font-size: 18px;
   text-transform: uppercase;
   font-weight: 600;
   color: white;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
 }
 
 .address {
@@ -70,7 +70,7 @@ width: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, .75);
+  background-color: rgba(255, 255, 255, 0.75);
   padding: 50px 20px 30px 20px;
   width: 225px;
   display: flex;
@@ -81,11 +81,15 @@ width: 100%;
   border-radius: 10px;
   z-index: 3;
 }
+.single-stats {
+  margin: 5px;
+}
 
-.single-stats, .play-again {
+.single-stats,
+.play-again {
   text-align: center;
   font-size: 14px;
-  line-height: 16px
+  line-height: 16px;
 }
 
 .play-again {
@@ -101,11 +105,11 @@ width: 100%;
 }
 
 .single-stats-button {
-    margin: 0;
-    padding: 5px 10px;
-    text-transform: uppercase;
-    font-size: 16px;
-    letter-spacing: .5px;
+  margin: 5px;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.5px;
 }
 
 .input-field {
@@ -143,7 +147,8 @@ width: 100%;
   padding: 0 10px;
 }
 
-.hint, .hint-button {
+.hint,
+.hint-button {
   position: absolute;
   margin: 0;
   width: 20%;
@@ -219,7 +224,7 @@ width: 100%;
 }
 
 input.guess-input:focus + label.guess-label {
-  border: solid 2px #94C741;
+  border: solid 2px #94c741;
   background-color: white;
 }
 .guess-input:focus::placeholder {
@@ -237,7 +242,7 @@ input.guess-input::placeholder {
   text-transform: uppercase;
   font-weight: 600;
   color: black;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   margin: 0;
 }
 
@@ -270,18 +275,20 @@ input.guess-input::placeholder {
 }
 
 @media screen and (min-width: 600px) {
-  .house-game-card, .city-slide-info {
+  .house-game-card,
+  .city-slide-info {
     width: 75vw;
   }
 
-  .hint, .hint-button {
+  .hint,
+  .hint-button {
     width: 25%;
-
-}
+  }
 }
 
 @media screen and (min-width: 768px) {
-  .house-game-card, .city-slide-info {
+  .house-game-card,
+  .city-slide-info {
     width: 40vw;
   }
 
