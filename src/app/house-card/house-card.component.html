@@ -1,6 +1,6 @@
 <main>
   <section class="house-card-container">
-    <div>
+    <div class="house-card-titles">
       <h1 class="header">
         {{ houseRef?.address.city }}, {{ houseRef?.address.state_code }}
       </h1>
@@ -9,33 +9,19 @@
       </p>
     </div>
     <div class="image-container">
-      <img
-        class="image"
-        src="{{ houseRef?.thumbnail }}"
-        alt="{{ houseRef?.prop_type }}"
-      />
-      <button
-        class="add-favorite"
-        (click)="emitFavoritesEvent(houseRef)"
-        [ngClass]="{ favorited: checkFavs(houseRef) }"
-      ></button>
+      <img class="image" src="{{ houseRef?.thumbnail }}" alt="{{ houseRef?.prop_type }}" />
+      <button class="add-favorite" (click)="emitFavoritesEvent(houseRef)"
+        [ngClass]="{ favorited: checkFavs(houseRef) }"></button>
     </div>
     <div class="house-details-container">
       <h2 class="header">${{ houseRef?.price | number }}</h2>
 
-      <p class="house-info">
-        Beds: {{ houseRef?.beds }} | Baths: {{ houseRef?.baths }} | House Size:
-        {{ houseRef?.building_size.size }} sf | Lot Size:
-        {{ houseRef?.lot_size.size }} sf
-      </p>
+      <p class="house-info">Beds: {{ houseRef?.beds }} | Baths: {{ houseRef?.baths }}</p>
+      <p class="house-info">House Size: {{ houseRef?.building_size.size }}sqft | Lot Size: {{ houseRef?.lot_size.size
+        }}sqft</p>
       <div class="listing-button">
-        <a
-          class="listing-link"
-          href="{{ houseRef?.rdc_web_url }}"
-          target="_blank"
-          rel="noopener noreferrer"
-          >See Listing</a
-        >
+        <a class="listing-link" href="{{ houseRef?.rdc_web_url }}" target="_blank" rel="noopener noreferrer">See
+          Listing</a>
       </div>
     </div>
   </section>
