@@ -93,7 +93,7 @@
       <option value="500000">$500,000+</option>
     </select>
   </form>
-  <div>
+  <div class="house-card-container">
     <app-house-card
       *ngFor="let favorite of filterFavorites(searchTerms); index as i"
       [houseRef]="favorite"
