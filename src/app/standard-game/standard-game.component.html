@@ -22,7 +22,8 @@
     <div class="house-details-container">
       <button class="add-favorite" (click)="onFavorite(gameArray[currentIndex])"
         [ngClass]="{ favorited: checkFavs(gameArray[currentIndex]) }" title="Add/Remove Favorite"></button>
-      <p class="address">{{ gameArray[currentIndex]?.address.line }}</p>
+      <p class="address">{{ gameArray[currentIndex]?.address.line }}., {{gameArray[currentIndex]?.address.postal_code}}
+      </p>
       <div class="hints-container">
         <button class="hint-button hint-sqft" *ngIf="!checkIndexGuessedSqft(currentIndex)"
           (click)="revealSqFtHint(currentIndex)">
