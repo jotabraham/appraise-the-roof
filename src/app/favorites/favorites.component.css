@@ -33,6 +33,7 @@
   }
 
   .house-card-container {
+    /* width: 75vw; */
     margin: 50px 0px 25px 0px;
   }
 }
@@ -48,6 +49,7 @@
   }
 
   .house-card-container {
+    /* width: 40vw; */
     justify-content: center;
     display: flex;
     flex-direction: row;
