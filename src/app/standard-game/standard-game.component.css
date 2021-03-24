@@ -228,17 +228,6 @@ input.guess-input::placeholder {
   color: white;
 }
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  height: 50px;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .score {
   text-align: center;
   font-size: 18px;
@@ -268,4 +257,15 @@ input.guess-input::placeholder {
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 50px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
