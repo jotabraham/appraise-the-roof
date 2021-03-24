@@ -1,8 +1,19 @@
 <main class="main">
-  <form #searchForm="ngForm" (ngSubmit)="emitSearchEvent(searchForm)" class="form">
+  <form
+    #searchForm="ngForm"
+    (ngSubmit)="emitSearchEvent(searchForm)"
+    class="form"
+  >
     <h1 class="h1-style">Browse Listings</h1>
     <div class="city-state-container">
-      <input class="input-field" type="text" name="city" id="city" placeholder="Search by City..." ngModel />
+      <input
+        class="input-field"
+        type="text"
+        name="city"
+        id="city"
+        placeholder="Search by City..."
+        ngModel
+      />
       <select class="input-field" name="state" id="state" ngModel>
         <option value="" disable selected>State</option>
         <option value="AL">AL</option>
@@ -77,6 +88,6 @@
         <option value="5">5</option>
       </select>
     </div>
-    <button class="button">Submit</button>
+    <button class="button">SUBMIT</button>
   </form>
 </main>

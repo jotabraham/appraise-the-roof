@@ -4,7 +4,9 @@
       <h1 class="header">
         {{ houseRef?.address.city }}, {{ houseRef?.address.state_code }}
       </h1>
-      <p class="house-info">{{ houseRef?.address.line }}</p>
+      <p class="house-info">
+        {{ houseRef?.address.line }}., {{ houseRef?.address.postal_code }}
+      </p>
     </div>
     <div class="image-container">
       <img

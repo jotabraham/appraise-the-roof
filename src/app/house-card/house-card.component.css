@@ -2,7 +2,7 @@
   border: 2px solid white;
   border-radius: 30px;
   max-width: 500px;
-  margin: 20px 0px 10px 0px;
+  margin: 20px;
   padding: 20px;
 }
 
@@ -24,15 +24,15 @@
 }
 
 .image-container {
-  width: 100%;
+  width: 458px;
   position: relative;
 }
 
 .image {
   width: 100%;
-  /* max-height: 250px; */
+  max-height: 250px;
   object-fit: cover;
-  object-position: center;
+  object-position: 50% 50%;
 }
 
 .listing-button {
