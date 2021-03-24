@@ -1,18 +1,40 @@
 <main>
-  <section>
-    <h1>{{ houseRef?.address.city }}, {{ houseRef?.address.state_code }}</h1>
-    <div class="image-container">
-      <img class="image" src="{{ houseRef?.thumbnail }}" alt="{{ houseRef?.prop_type }}" />
-      <button class="add-favorite" (click)="emitFavoritesEvent(houseRef)"
-        [ngClass]="{favorited: checkFavs(houseRef)}"></button>
+  <section class="house-card-container">
+    <div>
+      <h1 class="header">
+        {{ houseRef?.address.city }}, {{ houseRef?.address.state_code }}
+      </h1>
+      <p class="house-info">{{ houseRef?.address.line }}</p>
     </div>
-    <p>${{houseRef?.price | number}}</p>
-    <p>{{ houseRef?.address.line }}</p>
-    <p>Beds: {{ houseRef?.beds }} | Baths: {{ houseRef?.baths }}</p>
-    <p>
-      House Size: {{ houseRef?.building_size.size }} sf | Lot Size:
-      {{ houseRef?.lot_size.size }} sf
-    </p>
-    <a href="{{ houseRef?.rdc_web_url }}" target="_blank" rel="noopener noreferrer">See Listing</a>
+    <div class="image-container">
+      <img
+        class="image"
+        src="{{ houseRef?.thumbnail }}"
+        alt="{{ houseRef?.prop_type }}"
+      />
+      <button
+        class="add-favorite"
+        (click)="emitFavoritesEvent(houseRef)"
+        [ngClass]="{ favorited: checkFavs(houseRef) }"
+      ></button>
+    </div>
+    <div class="house-details-container">
+      <h2 class="header">${{ houseRef?.price | number }}</h2>
+
+      <p class="house-info">
+        Beds: {{ houseRef?.beds }} | Baths: {{ houseRef?.baths }} | House Size:
+        {{ houseRef?.building_size.size }} sf | Lot Size:
+        {{ houseRef?.lot_size.size }} sf
+      </p>
+      <div class="listing-button">
+        <a
+          class="listing-link"
+          href="{{ houseRef?.rdc_web_url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          >See Listing</a
+        >
+      </div>
+    </div>
   </section>
 </main>
