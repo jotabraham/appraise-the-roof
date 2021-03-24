@@ -22,6 +22,7 @@ export class GameHouseCardComponent implements OnInit {
   userGuess: number = 0;
   numberWithCommas: string = null;
 
+
   constructor(private realtorService: RealtorService) { }
 
   ngOnInit(): void { }

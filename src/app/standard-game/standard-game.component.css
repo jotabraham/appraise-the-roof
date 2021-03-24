@@ -1,9 +1,108 @@
+
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .standard-game-form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin-top: 100px;
+}
+
+.house-game-card, .city-slide-info {
+  position: relative;
+  width: 90vw;
+}
+
+.house-image-container {
+position: relative;
+}
+
+.house-image {
+  width: 100%;
+}
+
+.add-favorite, .favorited {
+  right: -13px;
+  top: -3px;
+}
+
+.city-slide-info {
+  height: 20px;
+  margin: 7px;
+}
+
+.city-info, .slide-info {
+  position: absolute;
+  top: 0;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white;
+  letter-spacing: .5px;
+}
+
+.address {
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: 400;
+  color: white;
+  margin: 7px;
+}
+
+.city-info {
+  left: 0;
+}
+.slide-info {
+  right: 0;
+}
+
+.single-stats-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, .75);
+  padding: 50px 20px 30px 20px;
+  width: 225px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 10px;
+  z-index: 3;
+}
+
+.single-stats, .play-again {
+  text-align: center;
+  font-size: 14px;
+  line-height: 16px
+}
+
+.play-again {
+  margin: 15px 0 0 0;
+  cursor: pointer;
+}
+
+.total-score {
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.single-stats-button {
+    margin: 0;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: .5px;
 }
 
 .input-field {
@@ -19,8 +118,154 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  position: fixed;
+  /* position: fixed;
   bottom: 50px;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, 0); */
+}
+
+.hints-container {
+  position: relative;
+  height: 50px;
+}
+
+.hint-button {
+  padding: 7px 5px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.hint {
+  text-align: center;
+  padding: 0 10px;
+}
+
+.hint, .hint-button {
+  position: absolute;
+  margin: 0;
+  width: 20vw;
+  line-height: 15px;
+  color: white;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 15px;
+}
+
+.hint-sqft {
+  left: 0;
+}
+
+.hint-bed {
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hint-bath {
+  right: 0;
+}
+
+.guess-container {
+  margin-top: 20px;
+}
+
+.guess-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.guess-input-container {
+  /* background-color: white; */
+  width: 200px;
+  height: 30px;
+  position: relative;
+  border-radius: 3px;
+}
+
+.guess-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  outline: none;
+  text-align: center;
+  font-size: 16px;
+  cursor: text;
+  left: 0;
+  top: 0;
+  background-color: transparent;
+  border: solid 2px white;
+  border-radius: 15px;
+}
+
+.guess-label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: black;
+  outline: none;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 16px;
+  overflow: hidden;
+  cursor: text;
+  background-color: transparent;
+  border: solid 2px white;
+  border-radius: 15px;
+}
+
+input.guess-input:focus + label.guess-label {
+  border: solid 2px #94C741;
+  background-color: white;
+}
+.guess-input:focus::placeholder {
+  color: transparent;
+  background-color: transparent;
+}
+
+input.guess-input::placeholder {
+  color: white;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 50px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.score {
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: black;
+  letter-spacing: .5px;
+  margin: 0;
+}
+
+.add-favorite, .favorited {
+  z-index: 3;
+}
+
+.carousel-control-next {
+  right: 15px;
+  height: 15px;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 15px;
+}
+
+.close-button {
+  position: absolute;
+  left: 17px;
+  top: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
 }
