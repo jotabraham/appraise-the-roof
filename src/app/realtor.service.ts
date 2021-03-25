@@ -45,8 +45,6 @@ export class RealtorService {
   constructor(private http: HttpClient) { }
 
   searchListings = (form: any): any => {
-    // console.log(form);
-
     let headers: any = {
       'x-rapidapi-key': this.apiKey,
       'x-rapidapi-host': this.apiHost,
@@ -57,7 +55,7 @@ export class RealtorService {
       limit: '100',
       offset: '0',
       state_code: form.form.value.state,
-      sort: 'relevance',
+      sort: form.form.value.sort,
       prop_type: 'single_family',
     };
     if (form.form.value.beds) {
