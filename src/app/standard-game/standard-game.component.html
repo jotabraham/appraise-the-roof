@@ -2,31 +2,18 @@
 <main class="main">
   <div *ngIf="locationSelected" class="city-slide-info">
     <p class="city-info">{{ city }}, {{ state }}</p>
-    <p class="slide-info">{{ currentIndex + 1 }}/10</p>
+    <p class="slide-info">{{ currentIndex + 1 }} of {{gameArray.length}}</p>
   </div>
   <div *ngIf="locationSelected" class="house-game-card">
     <div class="house-image-container">
-      <img
-        src="{{ gameArray[currentIndex]?.thumbnail }}"
-        alt="some house"
-        class="house-image"
-      />
-      <div
-        *ngIf="checkIndexAppraised(currentIndex) && open"
-        class="single-stats-popup"
-      >
-        <p
-          *ngIf="currentIndex === 9"
-          class="close-button"
-          (click)="closeWindow()"
-        >
+      <img src="{{ gameArray[currentIndex]?.thumbnail }}" alt="some house" class="house-image" />
+      <div *ngIf="checkIndexAppraised(currentIndex) && open" class="single-stats-popup"
+        [ngClass]="{'room-for-x': appraised.length === gameArray.length}">
+        <p *ngIf="appraised.length === gameArray.length" class="close-button" (click)="closeWindow()">
           x
         </p>
-        <p class="single-stats">
-          + {{ newPointsAwarded }} points awarded<span
-            *ngIf="newPointsAwarded > 0"
-            >!</span
-          >
+        <p class="single-stats points-awarded">
+          + {{ newPointsAwarded }} points awarded<span *ngIf="newPointsAwarded > 0">!</span>
         </p>
         <p *ngIf="userGuess !== ''" class="single-stats">
           Your Guess:<br />${{ userGuess | number }}
@@ -37,21 +24,15 @@
         <p class="single-stats">
           Cost of House:<br />${{ gameArray[currentIndex]?.price | number }}
         </p>
-        <p *ngIf="currentIndex === 9" class="total-score">
-          total score for<br />{{ city }}, {{ state }}:<br />{{ score }}
+        <p *ngIf="appraised.length === gameArray.length" class="total-score">
+          total score for<br />{{ city }}, {{ state }}:
+        <p *ngIf="appraised.length === gameArray.length" class="total-score total-score-score">
+          {{ score }}
         </p>
-        <button
-          *ngIf="currentIndex < 9"
-          class="single-stats-button"
-          (click)="nextIndex()"
-        >
+        <button *ngIf="appraised.length < gameArray.length" class="single-stats-button" (click)="nextIndex()">
           next
         </button>
-        <button
-          *ngIf="currentIndex === 9"
-          class="single-stats-button"
-          routerLink="/stats"
-        >
+        <button *ngIf="appraised.length === gameArray.length" class="single-stats-button" routerLink="/stats">
           See Stats
         </button>
         <!-- <p
@@ -65,43 +46,33 @@
       </div>
     </div>
     <div class="house-details-container">
-      <button
-        class="add-favorite"
-        (click)="onFavorite(gameArray[currentIndex])"
-        [ngClass]="{ favorited: checkFavs(gameArray[currentIndex]) }"
-        title="Add/Remove Favorite"
-      ></button>
+      <button class="add-favorite" (click)="onFavorite(gameArray[currentIndex])"
+        [ngClass]="{ favorited: checkFavs(gameArray[currentIndex]) }" title="Add/Remove Favorite"></button>
       <p class="address">
         {{ gameArray[currentIndex]?.address.line }}.,
         {{ gameArray[currentIndex]?.address.postal_code }}
       </p>
       <div class="hints-container">
-        <button
-          class="hint-button hint-sqft"
-          *ngIf="!checkIndexGuessedSqft(currentIndex)"
-          (click)="revealSqFtHint(currentIndex)"
-        >
+        <button class="hint-button hint-sqft" *ngIf="!checkIndexGuessedSqft(currentIndex)"
+          (click)="revealSqFtHint(currentIndex)" [disabled]="checkIndexAppraised(currentIndex)">
           Show Sq Ft
+          <p class="hint-minus-pts">- 25 pts</p>
         </button>
         <p class="hint hint-sqft" *ngIf="checkIndexGuessedSqft(currentIndex)">
           {{ gameArray[currentIndex]?.building_size.size }} Sq Ft
         </p>
-        <button
-          class="hint-button hint-bed"
-          *ngIf="!checkIndexGuessedBeds(currentIndex)"
-          (click)="revealBedsHint(currentIndex)"
-        >
+        <button class="hint-button hint-bed" *ngIf="!checkIndexGuessedBeds(currentIndex)"
+          (click)="revealBedsHint(currentIndex)" [disabled]="checkIndexAppraised(currentIndex)">
           Show Beds
+          <p class="hint-minus-pts">- 25 pts</p>
         </button>
         <p class="hint hint-bed" *ngIf="checkIndexGuessedBeds(currentIndex)">
           Beds: {{ gameArray[currentIndex]?.beds }}
         </p>
-        <button
-          class="hint-button hint-bath"
-          *ngIf="!checkIndexGuessedBaths(currentIndex)"
-          (click)="revealBathsHint(currentIndex)"
-        >
+        <button class="hint-button hint-bath" *ngIf="!checkIndexGuessedBaths(currentIndex)"
+          (click)="revealBathsHint(currentIndex)" [disabled]="checkIndexAppraised(currentIndex)">
           Show Baths
+          <p class="hint-minus-pts">- 25 pts</p>
         </button>
         <p class="hint hint-bath" *ngIf="checkIndexGuessedBaths(currentIndex)">
           Baths: {{ gameArray[currentIndex]?.baths }}
@@ -109,25 +80,12 @@
       </div>
 
       <div class="guess-container" *ngIf="!checkIndexAppraised(currentIndex)">
-        <form
-          class="guess-form"
-          #guessPrice="ngForm"
-          (ngSubmit)="onGuess(guessPrice, currentIndex)"
-        >
+        <form class="guess-form" #guessPrice="ngForm" (ngSubmit)="onGuess(guessPrice, currentIndex)">
           <div class="guess-input-container">
-            <input
-              class="guess-input"
-              id="guess{{ currentIndex }}"
-              type="number"
-              placeholder="Enter your guess"
-              name="guess"
-              autocomplete="off"
-              (input)="addCommas(guessPrice)"
-              ngModel
-            />
+            <input class="guess-input" id="guess{{ currentIndex }}" type="number" placeholder="Enter your guess"
+              name="guess" autocomplete="off" (input)="addCommas(guessPrice)" ngModel />
             <label for="guess{{ currentIndex }}" class="guess-label">
-              {{ guesswithCommasAndDollarSign }}</label
-            >
+              {{ guesswithCommasAndDollarSign }}</label>
           </div>
           <button class="appraise-button">APPRAISE THE ROOF!</button>
         </form>
@@ -136,21 +94,10 @@
   </div>
 
   <section *ngIf="locationSelected === false">
-    <form
-      class="standard-game-form"
-      #searchGamePlay="ngForm"
-      (ngSubmit)="onLocationSubmit(searchGamePlay)"
-    >
+    <form class="standard-game-form" #searchGamePlay="ngForm" (ngSubmit)="onLocationSubmit(searchGamePlay)">
       <h1 class="h1-style">Select Location</h1>
       <div>
-        <input
-          class="input-field"
-          type="text"
-          name="city"
-          id="city"
-          placeholder="Search by City..."
-          ngModel
-        />
+        <input class="input-field" type="text" name="city" id="city" placeholder="Search by City..." ngModel />
         <select class="input-field" name="state" id="state" ngModel>
           <option value="" disable selected>State</option>
           <option value="AL">AL</option>
@@ -207,7 +154,7 @@
         </select>
       </div>
 
-      <button>START GAME</button>
+      <button class="start-game">START GAME</button>
     </form>
   </section>
 
