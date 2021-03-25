@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 175px 0 0 0;
+  margin: 125px 0 0 0;
 }
 
 .city-state-container {
@@ -57,26 +57,51 @@
     flex-direction: column;
     align-items: unset;
   }
+
+  .sort-by-container {
+    width: 100%;
+  }
+
+  .input-field {
+    width: -webkit-fill-available;
+  }
 }
+
 @media screen and (min-width: 768px) {
   .h1-style {
     position: absolute;
     margin-top: -60px;
   }
-
+  
   .form {
     margin: 125px 0 0 0;
     flex-direction: row;
+    flex-wrap: wrap;
   }
-
+  
   .city-state-container {
     flex-direction: row;
   }
-
+  
   .sqft-beds-container {
     flex-direction: row;
   }
 
+  .sort-by-container {
+    width: unset;
+  }
+  
+  .input-field {
+    width: min-content;
+  }
+  
+  .button {
+    position: absolute;
+    margin-top: 100px;
+  }
+}
+
+@media screen and (min-width: 950px) {
   .button {
     position: absolute;
     margin-top: 60px;
