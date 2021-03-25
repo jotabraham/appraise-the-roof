@@ -10,7 +10,7 @@
       A fake / hidden checkbox is used as click reciever,
       so you can use the :checked selector on it.
       -->
-    <input type="checkbox" />
+    <input type="checkbox" (click)="hideShowMenu()" />
 
     <!--
       Some spans to act as a hamburger.
@@ -26,7 +26,7 @@
       Too bad the menu has to be inside of the button
       but hey, it's pure CSS magic.
       -->
-    <ul id="menu">
+    <ul id="menu" *ngIf="menuToggle">
       <a routerLink="/stats">
         <li>My Stats</li>
       </a>
