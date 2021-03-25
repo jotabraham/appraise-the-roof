@@ -4,3 +4,6 @@
   <app-house-card *ngFor="let house of houseData; index as i" [houseRef]="house"
     (favoritesEvent)="getAndSetFavorites($event)"></app-house-card>
 </ul>
+<div class="footer-graphic" *ngIf="formSubmitted === false">
+  <img src="assets\main-page-graphic.svg" alt="" />
+</div>

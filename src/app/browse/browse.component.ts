@@ -9,10 +9,11 @@ import { RealtorService } from '../realtor.service';
 })
 export class BrowseComponent implements OnInit {
   houseData: any;
+  formSubmitted: boolean = false;
 
-  constructor(private realtorService: RealtorService) {}
+  constructor(private realtorService: RealtorService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   getAndSetFavorites = (favorite: any) => {
     this.realtorService.toggleFavorites(favorite);
@@ -20,6 +21,7 @@ export class BrowseComponent implements OnInit {
   };
 
   onSubmit = (form: NgForm) => {
+    this.formSubmitted = true;
     console.log(form.form.value);
     this.realtorService.searchListings(form).subscribe((response: any) => {
       console.log(response);

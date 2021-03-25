@@ -3,21 +3,10 @@
   <form #searchFavoritesForm="ngForm" class="form">
     <h1 class="h1-style">Favorites</h1>
     <div>
-      <input
-        class="input-field"
-        type="text"
-        name="searchCity"
-        id="searchCity"
-        placeholder="Filter by City..."
-        [(ngModel)]="searchTerms.searchCityTerm"
-      />
+      <input class="input-field" type="text" name="searchCity" id="searchCity" placeholder="Filter by City..."
+        [(ngModel)]="searchTerms.searchCityTerm" />
 
-      <select
-        class="input-field"
-        name="state"
-        id="state"
-        [(ngModel)]="searchTerms.searchStateTerm"
-      >
+      <select class="input-field" name="state" id="state" [(ngModel)]="searchTerms.searchStateTerm">
         <option value="" disable selected>State</option>
         <option value="AL">AL</option>
         <option value="AK">AK</option>
@@ -73,12 +62,7 @@
       </select>
     </div>
 
-    <select
-      class="input-field"
-      name="priceRange"
-      id="priceRange"
-      [(ngModel)]="searchTerms.searchMinPriceTerm"
-    >
+    <select class="input-field" name="priceRange" id="priceRange" [(ngModel)]="searchTerms.searchMinPriceTerm">
       <option value="" disable selected>Filter by Price Range</option>
       <option value="0">$0 - $50,000</option>
       <option value="50000">$50,000 - $100,000</option>
@@ -94,11 +78,12 @@
     </select>
   </form>
   <div class="house-card-container">
-    <app-house-card
-      *ngFor="let favorite of filterFavorites(searchTerms); index as i"
-      [houseRef]="favorite"
-      (favoritesEvent)="getAndSetFavorites($event)"
-    >
+    <app-house-card *ngFor="let favorite of filterFavorites(searchTerms); index as i" [houseRef]="favorite"
+      (favoritesEvent)="getAndSetFavorites($event)">
     </app-house-card>
+  </div>
+
+  <div class="footer-graphic" *ngIf="favorites.length === 0">
+    <img src="assets\main-page-graphic.svg" alt="" />
   </div>
 </section>

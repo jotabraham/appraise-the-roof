@@ -33,6 +33,10 @@
   margin: 5px;
 }
 
+button.button:focus {
+  opacity: 50%;
+}
+
 ::placeholder {
   color: white;
 }
