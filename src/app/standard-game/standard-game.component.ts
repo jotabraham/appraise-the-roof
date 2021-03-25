@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HighScore } from '../interfaces/high-score';
 import { RealtorService } from '../realtor.service';
@@ -29,13 +29,9 @@ export class StandardGameComponent implements OnInit {
   gameFinished: boolean = false;
   open: boolean = true;
 
-  // @Output() selectedCityState = new EventEmitter<Object>();
-  // @Output() favoritesEvent = new EventEmitter<any>();
-
   constructor(private realtorService: RealtorService) {}
 
   ngOnInit(): void {
-    console.log('this works');
     this.realtorService.clearTotalScore();
     this.favorites = this.realtorService.getFavorites();
   }
@@ -45,7 +41,6 @@ export class StandardGameComponent implements OnInit {
   };
 
   onGuess = (form: NgForm, index: number): void => {
-    console.log('index', this.gameArray[index]);
     this.userGuess = form.form.value.guess;
     if (!this.appraised.includes(index)) {
       this.appraised.push(index);
@@ -82,32 +77,12 @@ export class StandardGameComponent implements OnInit {
     this.realtorService.getFullArray(form).subscribe((response: any) => {
       this.fullArray = response.properties;
       this.fullArray = this.realtorService.shuffleGameArray(this.fullArray);
-      // console.log(this.fullArray);
-      // this.fullArray = this.realtorService.filterArray(this.fullArray);
-      // this.realtorService.setGameArray(this.fullArray);
       this.gameArray = this.realtorService.setGameArray(this.fullArray);
-      console.log('from game, game array', this.gameArray);
-      console.log('from game, full array', this.fullArray);
       this.city = form.form.value.city;
       this.state = form.form.value.state;
       this.locationSelected = !this.locationSelected;
-      // console.log(this.city);
-      // console.log(this.state);
     });
   };
-
-  // reloadComponent() {
-  //   let currentUrl = this.router.url;
-  //       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-  //       this.router.onSameUrlNavigation = 'reload';
-  //       this.router.navigate([currentUrl]);
-  //   }
-
-  // reloadComponent () {
-  //   this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
-  //     this.router.navigate(['Your actualComponent']);
-  // });
-  // }
 
   submitHighScore = () => {
     let highScoreObject: HighScore = {
@@ -120,7 +95,6 @@ export class StandardGameComponent implements OnInit {
 
   getAndSetFavorites = (favorite: any) => {
     this.realtorService.toggleFavorites(favorite);
-    console.log('get and set favs game comp works');
   };
 
   log(event: number) {
@@ -129,16 +103,16 @@ export class StandardGameComponent implements OnInit {
 
   revealSqFtHint = (index: number): void => {
     this.showSqFt.push(index);
-    console.log(index);
-
     this.realtorService.deductHintPoints();
     this.score = this.realtorService.getTotalScore();
   };
+
   revealBedsHint = (index: number): void => {
     this.showBeds.push(index);
     this.realtorService.deductHintPoints();
     this.score = this.realtorService.getTotalScore();
   };
+
   revealBathsHint = (index: number): void => {
     this.showBaths.push(index);
     this.realtorService.deductHintPoints();
@@ -159,26 +133,21 @@ export class StandardGameComponent implements OnInit {
   };
 
   onFavorite = (favorite: any): void => {
-    // this.favoritesEvent.emit(favorite);
     this.realtorService.toggleFavorites(favorite);
     this.favorites = this.realtorService.getFavorites();
-    console.log('emit works');
   };
 
   checkFavs = (house: any): boolean => {
-    // console.log("check favs works");
     return this.realtorService.favorites.some((item) => {
       return item.property_id === house.property_id;
     });
   };
 
   addCommas = (form: NgForm) => {
-    // console.log(form.form.value.guess);
     if (form.form.value.guess !== null) {
       this.guesswithCommasAndDollarSign = form.form.value.guess.toLocaleString();
       this.guesswithCommasAndDollarSign.replace(/\D/g, ''), 10;
       this.guesswithCommasAndDollarSign = `$${this.guesswithCommasAndDollarSign}`;
-      console.log(this.guesswithCommasAndDollarSign);
     } else {
       this.guesswithCommasAndDollarSign = null;
     }

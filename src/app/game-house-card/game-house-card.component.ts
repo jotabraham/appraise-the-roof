@@ -77,7 +77,6 @@ export class GameHouseCardComponent implements OnInit {
 
   emitFavoritesEvent = (favorite: any): void => {
     this.favoritesEvent.emit(favorite);
-    console.log("game card favorite works");
 
   };
 
@@ -88,23 +87,14 @@ export class GameHouseCardComponent implements OnInit {
   }
 
   addCommas = (form: NgForm) => {
-    // console.log(form.form.value.guess);
     if (form.form.value.guess !== null) {
       this.numberWithCommas = form.form.value.guess.toLocaleString();
       this.numberWithCommas.replace(/\D/g, ''), 10;
       this.numberWithCommas = `$${this.numberWithCommas}`
-      console.log(this.numberWithCommas);
     } else {
       this.numberWithCommas = null;
     }
 
   }
-
-  // setFocus(name) {    
-  //   const ele = this.aForm.nativeElement[name];    
-  //   if (ele) {
-  //     ele.focus();
-  //   }
-  // }
 
 }

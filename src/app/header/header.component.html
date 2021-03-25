@@ -6,26 +6,10 @@
     <img src="assets\appraise-the-roof-SMALL-LOGO-04.svg" alt="Logo-to-home">
   </div>
   <div id="menuToggle">
-    <!--
-      A fake / hidden checkbox is used as click reciever,
-      so you can use the :checked selector on it.
-      -->
     <input type="checkbox" (click)="hideShowMenu()" />
-
-    <!--
-      Some spans to act as a hamburger.
-      
-      They are acting like a real hamburger,
-      not that McDonalds stuff.
-      -->
     <span></span>
     <span></span>
     <span></span>
-
-    <!--
-      Too bad the menu has to be inside of the button
-      but hey, it's pure CSS magic.
-      -->
     <ul id="menu" *ngIf="menuToggle">
       <a routerLink="/stats">
         <li>My Stats</li>

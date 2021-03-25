@@ -15,6 +15,5 @@ export class StatsComponent implements OnInit {
   ngOnInit(): void {
 
     this.highScoreArray = this.realtorService.getHighScoresArray();
-    // this.highScoreArray = this.realtorService.sortHighScoreArray(this.highScoreArray);
   }
 }

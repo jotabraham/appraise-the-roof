@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit {
   }
 
   hideShowMenu = () => {
-    console.log("toggle click works");
     this.menuToggle = !this.menuToggle;
   }
 

@@ -14,7 +14,6 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {}
 
   emitSearchEvent = (form: NgForm) => {
-    console.log(form);
     this.searchEvent.emit(form);
   };
 }

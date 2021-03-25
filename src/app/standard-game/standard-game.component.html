@@ -35,14 +35,6 @@
         <button *ngIf="appraised.length === gameArray.length" class="single-stats-button" routerLink="/stats">
           See Stats
         </button>
-        <!-- <p
-          *ngIf="currentIndex === 9"
-          class="play-again"
-          routerLink="/standard-game"
-          (click)="ngOnInit()"
-        >
-          Play Again
-        </p> -->
       </div>
     </div>
     <div class="house-details-container">
@@ -157,12 +149,6 @@
       <button class="start-game">START GAME</button>
     </form>
   </section>
-
-  <!-- <div class="results-popup" *ngIf="gameFinished">
-    <p>See Your Rank!</p>
-    <button class="play-again-button">Play Again</button>
-    <button class="stats-button" routerLink="/stats">Stats</button>
-  </div> -->
 </main>
 <div class="footer-graphic" *ngIf="locationSelected === false">
   <img src="assets\main-page-graphic.svg" alt="" />

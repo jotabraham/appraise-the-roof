@@ -143,10 +143,6 @@ button.start-game:focus {
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* position: fixed;
-  bottom: 50px;
-  left: 50%;
-  transform: translate(-50%, 0); */
 }
 
 .room-for-x {
@@ -214,7 +210,6 @@ button.hint-button {
 }
 
 .guess-input-container {
-  /* background-color: white; */
   width: 200px;
   height: 30px;
   position: relative;

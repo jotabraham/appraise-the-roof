@@ -18,26 +18,6 @@ export class RealtorService {
   gameArray: any[] = [];
 
   highScoreArray: HighScore[] = [
-    // {
-    //   city: 'Grand Rapids',
-    //   state: 'MI',
-    //   highScore: 100,
-    // },
-    // {
-    //   city: 'Grand Rapids',
-    //   state: 'MI',
-    //   highScore: 850,
-    // },
-    // {
-    //   city: 'Grand Rapids',
-    //   state: 'MI',
-    //   highScore: 550,
-    // },
-    // {
-    //   city: 'Grand Rapids',
-    //   state: 'MI',
-    //   highScore: 1000,
-    // },
   ];
   selectedCityState: any;
   favorites: any[] = [];
@@ -84,8 +64,6 @@ export class RealtorService {
   };
 
   getFullArray = (form: NgForm) => {
-    // console.log(form);
-
     let headers: any = {
       'x-rapidapi-key': this.apiKey,
       'x-rapidapi-host': this.apiHost,
@@ -98,7 +76,6 @@ export class RealtorService {
       state_code: form.form.value.state,
       sort: 'relevance',
       prop_type: 'single_family',
-      // sqft_min: '0',
     };
 
     return this.http.get(this.realtorUrl, {
@@ -108,8 +85,6 @@ export class RealtorService {
   };
 
   filterArray = (fullArrayOfHouses: any[]): any[] => {
-    console.log("filter test");
-
     return fullArrayOfHouses.filter((item) => {
       return (
         item.hasOwnProperty('thumbnail') &&
@@ -121,12 +96,10 @@ export class RealtorService {
         item.hasOwnProperty('address')
       );
     });
-    // console.log("filtered?", this.gameArray);
   };
 
   setGameArray = (fullArrayOfHouses: any[]): any[] => {
     this.gameArray = fullArrayOfHouses.slice(0, 10);
-    // console.log('from service', fullArrayOfHouses);
     return this.gameArray;
   };
 
@@ -154,7 +127,6 @@ export class RealtorService {
 
   updateHighScoreArray = (highScoreObject: HighScore) => {
     this.highScoreArray.push(highScoreObject);
-    console.log(this.highScoreArray);
   };
 
   clearTotalScore = () => {
@@ -187,10 +159,8 @@ export class RealtorService {
     });
     if (index === -1) {
       this.favorites.push(favorite);
-      console.log(this.favorites);
     } else {
       this.favorites.splice(index, 1);
     }
-    // console.log('this works');
   };
 }

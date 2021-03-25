@@ -10,7 +10,6 @@ body {
   flex-direction: column;
   align-items: center;
   height: auto;
-  /* position: relative; */
 }
 
 .clouds-container {
@@ -20,7 +19,6 @@ body {
 }
 
 .logo-container {
-  /* position: fixed; */
   width: 70vw;
   margin-top: 12vh;
   z-index: 1;

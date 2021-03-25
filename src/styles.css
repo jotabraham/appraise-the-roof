@@ -62,8 +62,6 @@ button:focus, a:focus, img:focus, input:focus, div:focus {
 
 .add-favorite {
   position: absolute;
-  /* right: 5px;
-  top: 15px; */
   background-color: transparent;
   border: none;
   height: 100px;
