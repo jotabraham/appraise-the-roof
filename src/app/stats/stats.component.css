@@ -38,6 +38,10 @@
    .h-location {
       text-align: start;
    }
+
+   .h-score, .h-rank {
+      text-align: center;
+   }
    
    .score, .rank-cell {
       text-align: center;

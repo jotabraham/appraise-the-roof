@@ -33,8 +33,11 @@
   margin: 5px;
 }
 
+button.button:visited {
+  background: rgba(57, 181, 74, 0.5);
+}
 button.button:focus {
-  opacity: 50%;
+  background: rgba(57, 181, 74, 0.5);
 }
 
 ::placeholder {

@@ -164,6 +164,9 @@
     <button class="stats-button" routerLink="/stats">Stats</button>
   </div> -->
 </main>
+<div class="footer-graphic" *ngIf="locationSelected === false">
+  <img src="assets\main-page-graphic.svg" alt="" />
+</div>
 <footer class="footer" *ngIf="locationSelected">
   <p class="score">Current Score: {{ score }}</p>
 </footer>

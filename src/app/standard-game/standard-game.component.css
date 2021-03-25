@@ -12,8 +12,11 @@
   margin-top: 100px;
 }
 
+button.start-game:visited {
+  background:rgba(57, 181, 74, 0.5)
+}
 button.start-game:focus {
-  opacity: 50%;
+  background: rgba(57, 181, 74, 0.5);
 }
 
 .house-game-card,
@@ -326,6 +329,6 @@ input.guess-input::placeholder {
   }
 
   .house-image {
-    max-height: 500px;
+    max-height: 400px;
   }
 }
