@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  menuToggle: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  hideShowMenu = () => {
+    console.log("toggle click works");
+    this.menuToggle = !this.menuToggle;
   }
 
 }
