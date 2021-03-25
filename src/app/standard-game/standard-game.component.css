@@ -12,6 +12,10 @@
   margin-top: 100px;
 }
 
+button.start-game:focus {
+  opacity: 50%;
+}
+
 .house-game-card,
 .city-slide-info {
   position: relative;
@@ -51,11 +55,11 @@
 }
 
 .address {
-  font-size: 16px;
+  font-size: 18px;
   text-transform: capitalize;
   font-weight: 400;
   color: white;
-  margin: 7px;
+  margin: 7px 0;
 }
 
 .city-info {
@@ -71,7 +75,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.75);
-  padding: 50px 20px 30px 20px;
+  padding: 30px 20px;
   width: 225px;
   display: flex;
   flex-direction: column;
@@ -82,7 +86,12 @@
   z-index: 3;
 }
 .single-stats {
-  margin: 5px;
+  margin: 0 0 12px 0;
+}
+
+.points-awarded {
+  font-weight: 600;
+  color: #01628A;
 }
 
 .single-stats,
@@ -102,10 +111,16 @@
   line-height: 16px;
   text-align: center;
   font-weight: 600;
+  margin: 8px 0;
+}
+
+.total-score-score {
+  font-size: 18px;
+  margin: -4px 0 10px 0;
 }
 
 .single-stats-button {
-  margin: 5px;
+  margin: 10px 0 0 0;
   padding: 5px 10px;
   text-transform: uppercase;
   font-size: 16px;
@@ -131,32 +146,40 @@
   transform: translate(-50%, 0); */
 }
 
+.room-for-x {
+  padding: 50px 20px 30px 20px;
+}
+
 .hints-container {
   position: relative;
   height: 50px;
 }
 
-.hint-button {
-  padding: 7px 5px;
+button.hint-button {
+  background: unset;
+  background-color: #01628A;
+  padding: 7px 0 0 0;
   font-size: 14px;
   text-transform: uppercase;
 }
 
 .hint {
-  text-align: center;
-  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hint,
 .hint-button {
   position: absolute;
   margin: 0;
-  width: 20%;
+  width: 33%;
   line-height: 15px;
   color: white;
   top: 50%;
   transform: translateY(-50%);
-  border-radius: 15px;
+  border-radius: 2px;
+  height: 100%;
 }
 
 .hint-sqft {
@@ -172,8 +195,13 @@
   right: 0;
 }
 
+.hint-minus-pts {
+  font-size: 12px;
+  color: black;
+}
+
 .guess-container {
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .guess-form {
@@ -256,11 +284,16 @@ input.guess-input::placeholder {
 
 .close-button {
   position: absolute;
-  left: 17px;
+  right: 17px;
   top: 14px;
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
+  border: solid 1px black;
+  border-radius: 50%;
+  width: 19px;
+  height: 19px;
+  text-align: center;
 }
 
 .footer {
@@ -280,10 +313,10 @@ input.guess-input::placeholder {
     width: 75vw;
   }
 
-  .hint,
-  .hint-button {
-    width: 25%;
+  .hints-container {
+    margin-top: 10px;
   }
+
 }
 
 @media screen and (min-width: 768px) {
