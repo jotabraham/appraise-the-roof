@@ -12,13 +12,7 @@
           <p class="popup-header">
             Kerry
             <span>
-              <a
-                href="https://kerryhidlay.com/"
-                target="_blank"
-                class="portfolio-link"
-                >/ kerryhidlay.com</a
-              ></span
-            >
+              <a href="https://kerryhidlay.com/" target="_blank" class="portfolio-link">/ kerryhidlay.com</a></span>
           </p>
 
           <p class="about-me">
@@ -70,16 +64,18 @@
           <div class="sims-img sims-andrea"></div>
         </div>
         <div class="profile-info">
-          <p class="popup-header">Andrea</p>
+          <p class="popup-header">Andrea
+            <span><a href="http://andrea-hoffman.surge.sh/" target="_blank" class="portfolio-link">/
+                dev portfolio</a></span>
+          </p>
           <p class="about-me">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quae
-            praesentium, inventore cupiditate dignissimos error nihil culpa nemo
-            quo voluptatem numquam eaque qui ad aperiam accusamus, quam mollitia
-            commodi. Inventore? Lorem ipsum dolor sit, amet consectetur
-            adipisicing elit. Atque repellendus accusamus neque necessitatibus
-            accusantium reiciendis ab exercitationem aliquid labore voluptates
-            animi quibusdam fugit aperiam voluptate, velit odio, unde iure
-            facilis.
+            We are all hard-wired for storytelling and a compelling narrative. This concept is the central vision for
+            what I do. I am endlessly inspired by any authentic account told through a book, conversation, branding work
+            or an inventive application design.<br><br>
+            With a BFA in Graphic Design from Western Michigan University and my new foundation of tech skills from
+            Grand Circus, I am eager to
+            build upon these languages in order to craft refined UI solutions that deliver a brand’s story in a
+            memorable and accessible approach.
           </p>
         </div>
       </div>
@@ -96,20 +92,12 @@
       <tr class="border-top">
         <td class="our-names" (click)="showKerryPopup()">Kerry Hidlay</td>
         <td class="linkedin">
-          <a
-            href="https://www.linkedin.com/in/kerry-hidlay/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.linkedin.com/in/kerry-hidlay/" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-linkedin-in"> </i>
           </a>
         </td>
         <td class="github">
-          <a
-            href="https://github.com/khidlay"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://github.com/khidlay" target="_blank" rel="noopener noreferrer">
             <i class="fas fa-code"></i>
           </a>
         </td>
@@ -117,11 +105,7 @@
       <tr>
         <td class="our-names" (click)="showJohnPopup()">John Abraham</td>
         <td class="linkedin">
-          <a
-            href="https://www.linkedin.com/in/john-t-abraham/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.linkedin.com/in/john-t-abraham/" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-linkedin-in"></i>
           </a>
         </td>
@@ -134,20 +118,12 @@
       <tr>
         <td class="our-names" (click)="showAndreaPopup()">Andrea Hoffman</td>
         <td class="linkedin">
-          <a
-            href="https://www.linkedin.com/in/andrea-s-hoffman/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.linkedin.com/in/andrea-s-hoffman/" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-linkedin-in"></i>
           </a>
         </td>
         <td class="github">
-          <a
-            href="https://github.com/andrea-s-hoffman"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://github.com/andrea-s-hoffman" target="_blank" rel="noopener noreferrer">
             <i class="fas fa-code"></i>
           </a>
         </td>
@@ -170,22 +146,16 @@
         <td class="rank-cell" *ngIf="highScoreArray[i].highScore >= 900">
           <img class="medal" src="assets/medal-gold.png" alt="gold" />
         </td>
-        <td
-          class="rank-cell"
-          *ngIf="
+        <td class="rank-cell" *ngIf="
             highScoreArray[i].highScore < 900 &&
             highScoreArray[i].highScore >= 600
-          "
-        >
+          ">
           <img class="medal" src="assets/medal-silver.png" alt="gold" />
         </td>
-        <td
-          class="rank-cell"
-          *ngIf="
+        <td class="rank-cell" *ngIf="
             highScoreArray[i].highScore < 600 &&
             highScoreArray[i].highScore >= 300
-          "
-        >
+          ">
           <img class="medal" src="assets/medal-bronze.png" alt="gold" />
         </td>
         <td class="rank-cell" *ngIf="highScoreArray[i].highScore < 300">

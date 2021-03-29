@@ -114,7 +114,7 @@ td {
 }
 
 .headshot-andrea {
-  background-image: url("src/assets/andrea-headshot.jpeg");
+  background-image: url("src/assets/andrea.jpg");
 }
 
 .headshot-kerry {
@@ -228,9 +228,14 @@ td {
     width: 350px;
   }
 
+  .popup-container {
+    align-items: unset;
+  }
+
   .popup-box {
     width: 600px;
-    height: 80vh;
+    height: 620px;
+    margin-top: 100px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -253,7 +258,7 @@ td {
     height: 250px;
   }
   .profile-info {
-    width: 80%;
+    width: 82%;
   }
 
   .github,
