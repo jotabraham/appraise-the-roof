@@ -103,6 +103,18 @@ td {
 .sims-andrea:hover {
   background-image: url("src/assets/Screen Shot 2021-03-29 at 12.30.45 PM.png");
 }
+.sims-kerry {
+  background-image: url("#");
+}
+.sims-kerry:hover {
+  background-image: url("#");
+}
+.sims-john {
+  background-image: url("#");
+}
+.sims-john:hover {
+  background-image: url("#");
+}
 
 .profile-img {
   background-color: blue;
@@ -119,6 +131,10 @@ td {
 
 .headshot-kerry {
   background-image: url("src/assets/kerry-hidlay-headshot.jpg");
+}
+
+.headshot-john {
+  background-image: url("#");
 }
 
 .border-top {
