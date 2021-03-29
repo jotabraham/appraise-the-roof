@@ -1,36 +1,153 @@
 <app-header></app-header>
 <section class="highscore-table-section">
-  <h1 class="h1-style">My Stats</h1>
-  <table class="highscore-table">
-    <tr>
-      <th class="heading h-location">Location</th>
-      <th class="heading h-score">Score</th>
-      <th class="heading h-rank">Rank</th>
-    </tr>
-    <tr *ngFor="let highScore of highScoreArray; index as i">
-      <td class="city-state">{{ highScoreArray[i].city }}, {{ highScoreArray[i].state }}</td>
-      <td class="score">{{ highScoreArray[i].highScore }}</td>
-      <td class="rank-cell" *ngIf="highScoreArray[i].highScore >= 900">
-        <img class="medal" src="assets/medal-gold.png" alt="gold" />
-      </td>
-      <td class="rank-cell" *ngIf="
-          highScoreArray[i].highScore < 900 &&
-          highScoreArray[i].highScore >= 600
-        ">
-        <img class="medal" src="assets/medal-silver.png" alt="gold" />
-      </td>
-      <td class="rank-cell" *ngIf="
-          highScoreArray[i].highScore < 600 &&
-          highScoreArray[i].highScore >= 300
-        ">
-        <img class="medal" src="assets/medal-bronze.png" alt="gold" />
-      </td>
-      <td class="rank-cell" *ngIf="highScoreArray[i].highScore < 300">
-        <img class="medal" src="assets/medal-frown.png" alt="gold" />
-      </td>
-    </tr>
-  </table>
-  <button class="play-again-button" routerLink="/standard-game">Play Again</button>
+  <div class="popup-container" *ngIf="kerryPopup">
+    <div class="popup-box">
+      <div class="popup">
+        <p class="x-button" (click)="showKerryPopup()">x</p>
+        <div class="profile-images">
+          <div class="sims-img"></div>
+          <div class="profile-img"></div>
+          <div class="profile-info">
+            <p class="popup-header">Kerry</p>
+            <p class="about-me">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quae praesentium, inventore cupiditate
+              dignissimos error nihil culpa nemo quo voluptatem numquam eaque qui ad aperiam accusamus, quam mollitia
+              commodi. Inventore? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque repellendus accusamus
+              neque necessitatibus accusantium reiciendis ab exercitationem aliquid labore voluptates animi quibusdam
+              fugit aperiam voluptate, velit odio, unde iure facilis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popup-container" *ngIf="johnPopup">
+    <div class="popup-box">
+      <div class="popup">
+        <p class="x-button" (click)="showJohnPopup()">x</p>
+        <div class="profile-images">
+          <div class="sims-img"></div>
+          <div class="profile-img"></div>
+          <div class="profile-info">
+            <p class="popup-header">John</p>
+            <p class="about-me">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quae praesentium, inventore cupiditate
+              dignissimos error nihil culpa nemo quo voluptatem numquam eaque qui ad aperiam accusamus, quam mollitia
+              commodi. Inventore? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque repellendus
+              accusamus
+              neque necessitatibus accusantium reiciendis ab exercitationem aliquid labore voluptates animi quibusdam
+              fugit aperiam voluptate, velit odio, unde iure facilis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popup-container" *ngIf="andreaPopup">
+    <div class="popup-box">
+      <div class="popup">
+        <p class="x-button" (click)="showAndreaPopup()">x</p>
+        <div class="profile-images">
+          <div class="profile-img headshot-andrea"></div>
+          <div class="sims-img sims-andrea"></div>
+        </div>
+        <div class="profile-info">
+          <p class="popup-header">Andrea</p>
+          <p class="about-me">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quae praesentium, inventore cupiditate
+            dignissimos error nihil culpa nemo quo voluptatem numquam eaque qui ad aperiam accusamus, quam mollitia
+            commodi. Inventore? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque repellendus
+            accusamus
+            neque necessitatibus accusantium reiciendis ab exercitationem aliquid labore voluptates animi quibusdam
+            fugit aperiam voluptate, velit odio, unde iure facilis.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about-us">
+    <h1 class="table-title-about">Leaderboard</h1>
+    <table class="highscore-table">
+      <!-- <tr>
+        <th class="heading">Name</th>
+        <th class="heading h-linkedin">LinkedIn</th>
+        <th class="heading h-portfolio">Portfolio</th>
+      </tr> -->
+      <tr class="border-top">
+        <td class="our-names" (click)="showKerryPopup()">Kerry Hidlay</td>
+        <td class="linkedin">
+          <a href="https://www.linkedin.com/in/kerry-hidlay/" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin-in">
+            </i>
+          </a>
+        </td>
+        <td class="github">
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-code"></i>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="our-names" (click)="showJohnPopup()">John Abraham</td>
+        <td class="linkedin">
+          <a href="https://www.linkedin.com/in/john-t-abraham/" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </td>
+        <td class="github">
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-code"></i>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="our-names" (click)="showAndreaPopup()">Andrea Hoffman</td>
+        <td class="linkedin">
+          <a href="https://www.linkedin.com/in/andrea-s-hoffman/" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </td>
+        <td class="github">
+          <a href="https://github.com/andrea-s-hoffman" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-code"></i>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="stats-container">
+    <h1 class="table-title-stats">My Stats</h1>
+    <table class="highscore-table">
+      <tr>
+        <th class="heading h-location">Location</th>
+        <th class="heading h-score">Score</th>
+        <th class="heading h-rank">Rank</th>
+      </tr>
+      <tr *ngFor="let highScore of highScoreArray; index as i">
+        <td class="city-state">{{ highScoreArray[i].city }}, {{ highScoreArray[i].state }}</td>
+        <td class="score">{{ highScoreArray[i].highScore }}</td>
+        <td class="rank-cell" *ngIf="highScoreArray[i].highScore >= 900">
+          <img class="medal" src="assets/medal-gold.png" alt="gold" />
+        </td>
+        <td class="rank-cell" *ngIf="
+            highScoreArray[i].highScore < 900 &&
+            highScoreArray[i].highScore >= 600
+          ">
+          <img class="medal" src="assets/medal-silver.png" alt="gold" />
+        </td>
+        <td class="rank-cell" *ngIf="
+            highScoreArray[i].highScore < 600 &&
+            highScoreArray[i].highScore >= 300
+          ">
+          <img class="medal" src="assets/medal-bronze.png" alt="gold" />
+        </td>
+        <td class="rank-cell" *ngIf="highScoreArray[i].highScore < 300">
+          <img class="medal" src="assets/medal-frown.png" alt="gold" />
+        </td>
+      </tr>
+    </table>
+    <button class="play-again-button" routerLink="/standard-game">Play Again</button>
+  </div>
   <div class="footer-graphic">
     <img src="assets\main-page-graphic.svg" alt="" />
   </div>
