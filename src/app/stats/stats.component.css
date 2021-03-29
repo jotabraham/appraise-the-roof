@@ -1,75 +1,249 @@
 .highscore-table-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-top: 100px;
-   }
-   
-   .play-again-button {
-      margin: 50px 0;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-      box-shadow: 0 0 4px 4px rgba(0, 0, 0, .05);
-   }
-   
-   .play-again-button:hover {
-      box-shadow: 0 0 4px 4px rgba(0, 0, 0, .02);
-   }
-   
-   .highscore-table {
-      width: 80vw;
-      border-collapse: collapse;
-      font-size: 14px;
-   }
-   
-   th, td {
-      color: white;
-      padding: 5px;
-      border-bottom: solid 1px white;
-      height: 50px;
-   }
-   
-   .heading {
-      text-transform: uppercase;
-      letter-spacing: .5px;
-   }
-   
-   .h-location {
-      text-align: start;
-   }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-   .h-score, .h-rank {
-      text-align: center;
-   }
-   
-   .score, .rank-cell {
-      text-align: center;
-   }
-   
-   .city-state {
-      text-transform: capitalize;
-   }
-   
-   .medal {
-     height: 100%;
-   }
-   
-   @media screen and (min-width: 600px) {
-   
-      .highscore-table {
-         width: 350px;
-      }
-   
-    }
-   @media screen and (min-width: 768px) {
-   
-      .highscore-table {
-         width: 500px;
-         font-size: 18px;
-      }
-   
-      .play-again-button {
-         font-size: 18px;
-      }
-    }
+.stats-container,
+.about-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats-container {
+  margin-top: 25px;
+}
+
+.table-title-about {
+  color: white;
+  font-size: 2em;
+}
+.table-title-stats {
+  color: white;
+  margin-top: 25px;
+  font-size: 2em;
+}
+
+.play-again-button {
+  margin: 50px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.05);
+}
+
+.play-again-button:hover {
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.02);
+}
+
+.highscore-table {
+  width: 80vw;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th,
+td {
+  color: white;
+  padding: 5px;
+  border-bottom: solid 1px white;
+  height: 45px;
+}
+
+.heading {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.h-location {
+  text-align: start;
+}
+
+.h-score,
+.h-rank,
+.h-linkedin,
+.score,
+.rank-cell,
+.linkedin,
+.github,
+.h-portfolio {
+  text-align: center;
+}
+
+.h-portfolio {
+  padding: 0;
+  width: 120px;
+}
+
+.github {
+  width: 75px;
+}
+
+.profile-images {
+  width: 100%;
+  height: 225px;
+  background-color: red;
+  /* ^^delete once we have images */
+  display: flex;
+}
+
+.sims-img {
+  background-color: green;
+  /* ^^delete once we have images */
+  width: 50%;
+  height: 100%;
+  background-size: cover;
+  background-position: top;
+}
+
+.sims-andrea {
+  background-image: url("src/assets/Screen Shot 2021-03-29 at 12.30.33 PM.png");
+}
+.sims-andrea:hover {
+  background-image: url("src/assets/Screen Shot 2021-03-29 at 12.30.45 PM.png");
+}
+
+.profile-img {
+  background-color: blue;
+  /* ^^delete once we have images */
+  width: 50%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.headshot-andrea {
+  background-image: url("src/assets/andrea-headshot.jpeg");
+}
+
+.border-top {
+  border-top: solid white 1px;
+}
+
+.linkedin {
+  width: 50px;
+}
+
+.h-linkedin {
+  width: 200px;
+}
+
+.city-state {
+  text-transform: capitalize;
+}
+
+.our-names {
+  cursor: pointer;
+}
+.our-names:hover {
+  text-decoration: underline;
+}
+
+.fa-linkedin-in,
+.fa-code {
+  color: white;
+  cursor: pointer;
+}
+.fa-linkedin-in:hover,
+.fa-code:hover {
+  color: #94c741;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.medal {
+  height: 100%;
+}
+
+.popup-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-box {
+  position: relative;
+  height: 500px;
+  width: 85%;
+}
+
+.popup {
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 1em;
+  height: 100%;
+  width: 100%;
+  overflow: overlay;
+}
+
+.popup::-webkit-scrollbar {
+  display: none;
+}
+
+.popup-header {
+  font-size: 24px;
+  font-weight: 600;
+  color: linear-gradient(to right, #94c741, #39b54a);
+  padding: 20px 0px 0px 20px;
+}
+
+.x-button {
+  padding: 20px 25px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1.2em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+}
+
+.about-me {
+  margin: 10px 20px 20px 20px;
+}
+
+@media screen and (min-width: 600px) {
+  .highscore-table {
+    width: 350px;
+  }
+
+  .popup-box {
+    width: 600px;
+    height: 80vh;
+  }
+}
+@media screen and (min-width: 768px) {
+  .highscore-table {
+    width: 500px;
+    font-size: 18px;
+  }
+
+  .play-again-button {
+    font-size: 18px;
+  }
+
+  .popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-images {
+    height: 250px;
+  }
+  .profile-info {
+    width: 80%;
+  }
+
+  .github,
+  .linkedin {
+    width: 100px;
+  }
+}

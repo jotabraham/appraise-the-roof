@@ -9,6 +9,9 @@ import { RealtorService } from '../realtor.service';
 })
 export class StatsComponent implements OnInit {
   highScoreArray: HighScore[] = [];
+  kerryPopup: boolean = false;
+  johnPopup: boolean = false;
+  andreaPopup: boolean = false;
 
   constructor(private realtorService: RealtorService) { }
 
@@ -16,4 +19,14 @@ export class StatsComponent implements OnInit {
 
     this.highScoreArray = this.realtorService.getHighScoresArray();
   }
+
+  showKerryPopup = (): void => {
+    this.kerryPopup = !this.kerryPopup;
+  };
+  showJohnPopup = (): void => {
+    this.johnPopup = !this.johnPopup;
+  };
+  showAndreaPopup = (): void => {
+    this.andreaPopup = !this.andreaPopup;
+  };
 }
