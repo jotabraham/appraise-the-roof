@@ -117,6 +117,10 @@ td {
   background-image: url("src/assets/andrea-headshot.jpeg");
 }
 
+.headshot-kerry {
+  background-image: url("src/assets/kerry-hidlay-headshot.jpg");
+}
+
 .border-top {
   border-top: solid white 1px;
 }
@@ -138,6 +142,16 @@ td {
 }
 .our-names:hover {
   text-decoration: underline;
+}
+
+.portfolio-link {
+  color: black !important;
+  font-weight: 400;
+  cursor: pointer;
+}
+.portfolio-link:hover {
+  color: #94c741 !important;
+  cursor: pointer;
 }
 
 .fa-linkedin-in,
