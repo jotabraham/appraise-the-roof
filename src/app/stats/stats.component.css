@@ -134,7 +134,7 @@ td {
 }
 
 .headshot-john {
-  background-image: url("#");
+  background-image: url("src/assets/john-headshot.jpg");
 }
 
 .border-top {
