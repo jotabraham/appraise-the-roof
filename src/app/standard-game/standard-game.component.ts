@@ -49,17 +49,24 @@ export class StandardGameComponent implements OnInit {
       let pointsAwarded: number = 0;
       if (difference === 0) {
         pointsAwarded = 1000;
-      } else if (difference <= 1000) {
-        pointsAwarded = 100;
-      } else if (difference > 1000 && difference <= 10000) {
-        pointsAwarded = 75;
-      } else if (difference > 10000 && difference <= 50000) {
-        pointsAwarded = 50;
-      } else if (difference > 50000 && difference <= 100000) {
-        pointsAwarded = 25;
-      } else {
+      } else if (difference >= price) {
         pointsAwarded = 0;
-      }
+      } else if (difference < price) {
+        pointsAwarded = Math.floor((1-(difference/price))*100);
+      };
+      // if (difference === 0) {
+      //   pointsAwarded = 1000;
+      // } else if (difference <= 1000) {
+      //   pointsAwarded = 100;
+      // } else if (difference > 1000 && difference <= 10000) {
+      //   pointsAwarded = 75;
+      // } else if (difference > 10000 && difference <= 50000) {
+      //   pointsAwarded = 50;
+      // } else if (difference > 50000 && difference <= 100000) {
+      //   pointsAwarded = 25;
+      // } else {
+      //   pointsAwarded = 0;
+      // }
       this.realtorService.updateTotalScore(pointsAwarded);
       let currentTotal = this.realtorService.getTotalScore();
       this.score = currentTotal;
