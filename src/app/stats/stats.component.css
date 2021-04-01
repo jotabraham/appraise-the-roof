@@ -83,13 +83,13 @@ td {
 .profile-images {
   width: 100%;
   height: 225px;
-  background-color: red;
+  /* background-color: red; */
   /* ^^delete once we have images */
   display: flex;
 }
 
 .sims-img {
-  background-color: green;
+  /* background-color: green; */
   /* ^^delete once we have images */
   width: 50%;
   height: 100%;
@@ -98,26 +98,26 @@ td {
 }
 
 .sims-andrea {
-  background-image: url("src/assets/Screen Shot 2021-03-29 at 12.30.33 PM.png");
+  background-image: url("src/assets/sims-andrea-front.png");
 }
 .sims-andrea:hover {
-  background-image: url("src/assets/Screen Shot 2021-03-29 at 12.30.45 PM.png");
+  background-image: url("src/assets/sims-andrea-side.png");
 }
 .sims-kerry {
-  background-image: url("#");
+  background-image: url("src/assets/sims-kerry-front.png");
 }
 .sims-kerry:hover {
-  background-image: url("#");
+  background-image: url("src/assets/sims-kerry-side.png");
 }
 .sims-john {
-  background-image: url("#");
+  background-image: url("src/assets/sims-john-front.png");
 }
 .sims-john:hover {
-  background-image: url("#");
+  background-image: url("src/assets/sims-john-side.png");
 }
 
 .profile-img {
-  background-color: blue;
+  /* background-color: blue; */
   /* ^^delete once we have images */
   width: 50%;
   height: 100%;
@@ -126,7 +126,7 @@ td {
 }
 
 .headshot-andrea {
-  background-image: url("src/assets/andrea.jpg");
+  background-image: url("src/assets/andrea-headshot.jpg");
 }
 
 .headshot-kerry {
@@ -237,6 +237,12 @@ td {
 
 .about-me {
   margin: 10px 20px 20px 20px;
+}
+
+@media screen and (min-width: 450px) {
+  .sims-img {
+    background-size: 105%;
+  }
 }
 
 @media screen and (min-width: 600px) {
