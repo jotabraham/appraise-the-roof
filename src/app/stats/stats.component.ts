@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { HighScore } from '../interfaces/high-score';
-import { RealtorService } from '../realtor.service';
+import { Component, OnInit } from "@angular/core";
+import { HighScore } from "../interfaces/high-score";
+import { RealtorService } from "../realtor.service";
 
 @Component({
-  selector: 'app-stats',
-  templateUrl: './stats.component.html',
-  styleUrls: ['./stats.component.css'],
+  selector: "app-stats",
+  templateUrl: "./stats.component.html",
+  styleUrls: ["./stats.component.css"],
 })
 export class StatsComponent implements OnInit {
   highScoreArray: HighScore[] = [];
@@ -13,10 +13,9 @@ export class StatsComponent implements OnInit {
   johnPopup: boolean = false;
   andreaPopup: boolean = false;
 
-  constructor(private realtorService: RealtorService) { }
+  constructor(private realtorService: RealtorService) {}
 
   ngOnInit(): void {
-
     this.highScoreArray = this.realtorService.getHighScoresArray();
   }
 

@@ -1,23 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { HighScore } from '../interfaces/high-score';
-import { RealtorService } from '../realtor.service';
+import { Component, OnInit } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { HighScore } from "../interfaces/high-score";
+import { RealtorService } from "../realtor.service";
 
 @Component({
-  selector: 'app-standard-game',
-  templateUrl: './standard-game.component.html',
-  styleUrls: ['./standard-game.component.css'],
+  selector: "app-standard-game",
+  templateUrl: "./standard-game.component.html",
+  styleUrls: ["./standard-game.component.css"],
 })
 export class StandardGameComponent implements OnInit {
   gameArray: any[] = [];
   fullArray: any[] = [];
-  city: string = '';
-  state: string = '';
-  slideChangeMessage = '';
+  city: string = "";
+  state: string = "";
+  slideChangeMessage = "";
   showSqFt: number[] = [];
   showBeds: number[] = [];
   showBaths: number[] = [];
-  guesswithCommasAndDollarSign: string = '';
+  guesswithCommasAndDollarSign: string = "";
   score: number = 0;
   userGuess: number = 0;
   newPointsAwarded: number = 0;
@@ -52,26 +52,13 @@ export class StandardGameComponent implements OnInit {
       } else if (difference >= price) {
         pointsAwarded = 0;
       } else if (difference < price) {
-        pointsAwarded = Math.floor((1-(difference/price))*100);
-      };
-      // if (difference === 0) {
-      //   pointsAwarded = 1000;
-      // } else if (difference <= 1000) {
-      //   pointsAwarded = 100;
-      // } else if (difference > 1000 && difference <= 10000) {
-      //   pointsAwarded = 75;
-      // } else if (difference > 10000 && difference <= 50000) {
-      //   pointsAwarded = 50;
-      // } else if (difference > 50000 && difference <= 100000) {
-      //   pointsAwarded = 25;
-      // } else {
-      //   pointsAwarded = 0;
-      // }
+        pointsAwarded = Math.floor((1 - difference / price) * 100);
+      }
       this.realtorService.updateTotalScore(pointsAwarded);
       let currentTotal = this.realtorService.getTotalScore();
       this.score = currentTotal;
       this.newPointsAwarded = pointsAwarded;
-      this.guesswithCommasAndDollarSign = '';
+      this.guesswithCommasAndDollarSign = "";
       form.reset();
       if (this.appraised.length === this.gameArray.length) {
         this.submitHighScore();
@@ -153,7 +140,7 @@ export class StandardGameComponent implements OnInit {
   addCommas = (form: NgForm) => {
     if (form.form.value.guess !== null) {
       this.guesswithCommasAndDollarSign = form.form.value.guess.toLocaleString();
-      this.guesswithCommasAndDollarSign.replace(/\D/g, ''), 10;
+      this.guesswithCommasAndDollarSign.replace(/\D/g, ""), 10;
       this.guesswithCommasAndDollarSign = `$${this.guesswithCommasAndDollarSign}`;
     } else {
       this.guesswithCommasAndDollarSign = null;
